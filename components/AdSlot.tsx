@@ -110,7 +110,7 @@ export function AdSenseSlot({
   className = '',
 }: AdSenseSlotProps) {
   const adRef = useRef<HTMLDivElement>(null);
-  const client = process.env.NEXT_PUBLIC_ADSENSE_CLIENT;
+  const client = process.env.NEXT_PUBLIC_ADSENSE_CLIENT || 'ca-pub-9745434299525119';
   const config = SLOT_CONFIGS[type] || SLOT_CONFIGS['in-content'];
   const adFormat = format || config.defaultFormat;
 
