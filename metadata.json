@@ -1,0 +1,8 @@
+{
+  "name": "Color Pickers",
+  "description": "Color Pickers - Modern, fast HEX, RGB, HSL, HSV, CMYK color converters, gradient generator, palette suite, shades, tints, and CSS tools.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
