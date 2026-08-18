@@ -17,14 +17,17 @@ export function Footer() {
   ];
 
   const toolsLinks = [
-    { name: 'HEX ⇄ RGB Converter', href: '/tools/hex-to-rgb' },
-    { name: 'HEX ⇄ HSL Converter', href: '/tools/hex-to-hsl' },
-    { name: 'HEX ⇄ HSV Converter', href: '/tools/hex-to-hsv' },
-    { name: 'HEX ⇄ CMYK Converter', href: '/tools/hex-to-cmyk' },
+    { name: 'HEX Color Picker', href: '/tools/color-picker' },
+    { name: 'RGB Converter', href: '/tools/hex-to-rgb' },
+    { name: 'HSL Converter', href: '/tools/hex-to-hsl' },
+    { name: 'HSV Converter', href: '/tools/hex-to-hsv' },
+    { name: 'CMYK Converter', href: '/tools/hex-to-cmyk' },
     { name: 'Gradient Generator', href: '/tools/gradient-generator' },
     { name: 'Color Palette Generator', href: '/tools/palette-generator' },
-    { name: 'Color Picker', href: '/tools/color-picker' },
-    { name: 'Random Color Generator', href: '/tools/random-color' },
+    { name: 'Color Contrast Checker', href: '/tools/color-contrast-checker' },
+    { name: 'Color Shades Generator', href: '/tools/color-shades-generator' },
+    { name: 'Color Names Dictionary', href: '/tools/color-names' },
+    { name: 'CSS Color Converter', href: '/tools/css-converter' },
   ];
 
   const companyLinks = [

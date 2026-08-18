@@ -7,6 +7,7 @@ import { Footer } from '@/components/Footer';
 import { AdSlot } from '@/components/AdSlot';
 import { Breadcrumbs } from '@/components/Breadcrumbs';
 import { CopyButton } from '@/components/CopyButton';
+import { ToolSeoContent } from '@/components/ToolSeoContent';
 import {
   normalizeHex,
   hexToRgb,
@@ -18,7 +19,7 @@ import {
 } from '@/lib/color-utils';
 import { getClosestColorName } from '@/lib/color-names';
 import { addToColorHistory } from '@/lib/color-history';
-import { Pipette, Palette, Copy, Check } from 'lucide-react';
+import { Pipette, Palette, Copy, Check, Sparkles } from 'lucide-react';
 
 export default function ColorPickerPage() {
   const [selectedHex, setSelectedHex] = useState('3B82F6');
@@ -48,8 +49,8 @@ export default function ColorPickerPage() {
         // User cancelled eyedropper
       }
     } else {
-      setBrowserNotice('The Eyedropper API is supported in Chrome, Edge, and Opera browsers.');
-      setTimeout(() => setBrowserNotice(null), 4000);
+      setBrowserNotice('The Eyedropper API is supported in Chrome, Edge, and Opera desktop browsers.');
+      setTimeout(() => setBrowserNotice(null), 5000);
     }
   };
 
@@ -60,62 +61,53 @@ export default function ColorPickerPage() {
       <main className="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-8">
         <Breadcrumbs
           items={[
-            { label: 'Tools', href: '/tools' },
+            { label: 'Color Tools', href: '/tools' },
             { label: 'Color Picker & Eyedropper' },
           ]}
         />
 
-        <div className="my-6 text-center max-w-2xl mx-auto">
-          <h1 className="text-3xl font-extrabold text-slate-900 dark:text-white tracking-tight">
-            Interactive Color Picker & Eyedropper
+        <div className="my-6 text-center max-w-3xl mx-auto">
+          <h1 className="text-3xl sm:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight">
+            HEX Color Picker & Online Eyedropper
           </h1>
-          <p className="mt-2 text-slate-600 dark:text-slate-400 text-sm">
-            Pick colors directly from your screen or fine-tune using color wheels and sliders.
+          <p className="mt-2 text-slate-600 dark:text-slate-400 text-sm sm:text-base leading-relaxed">
+            Pick colors directly from your screen, inspect hexadecimal and RGB coordinates, adjust color channels interactively, and export design tokens in seconds.
           </p>
         </div>
 
         <AdSlot type="header" />
 
+        {/* Color Picker Interactive Section */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 my-8">
-          {/* Eyedropper & Wheel Stage */}
-          <div className="lg:col-span-6 bg-white dark:bg-slate-900 border border-slate-200/80 dark:border-slate-800/80 rounded-3xl p-6 shadow-sm flex flex-col items-center justify-between gap-6">
+          {/* Main Picker Card */}
+          <div className="lg:col-span-6 bg-white dark:bg-slate-900 border border-slate-200/80 dark:border-slate-800/80 rounded-3xl p-6 shadow-xs flex flex-col items-center gap-6">
+            {/* Color Preview Block */}
             <div
-              className="w-full h-64 rounded-2xl p-6 flex flex-col justify-between shadow-inner border border-black/10 transition-all duration-300"
+              className="w-full h-48 rounded-2xl border border-black/5 dark:border-white/5 flex flex-col items-center justify-center relative overflow-hidden transition-all shadow-inner"
               style={{ backgroundColor: `#${cleanHex}` }}
             >
-              <div className="flex justify-between items-start">
-                <span
-                  className={`text-xs font-bold px-3 py-1 rounded-full border backdrop-blur-md ${
-                    isLight
-                      ? 'bg-black/10 border-black/10 text-slate-900'
-                      : 'bg-white/20 border-white/20 text-white'
-                  }`}
-                >
-                  {name}
-                </span>
-                <CopyButton textToCopy={`#${cleanHex}`} label={`#${cleanHex}`} variant="badge" size="sm" />
-              </div>
-
-              <div className={`font-mono text-3xl font-extrabold ${isLight ? 'text-slate-900' : 'text-white'}`}>
-                #{cleanHex}
+              <div
+                className={`text-center px-4 py-2 rounded-xl backdrop-blur-md transition-colors ${
+                  isLight ? 'bg-black/10 text-slate-900' : 'bg-white/15 text-white'
+                }`}
+              >
+                <div className="text-2xl font-black font-mono tracking-wider">#{cleanHex}</div>
+                <div className="text-xs font-semibold opacity-90">{name}</div>
               </div>
             </div>
 
-            <div className="w-full flex flex-col sm:flex-row gap-4">
+            {/* Quick Picker Controls */}
+            <div className="w-full grid grid-cols-1 sm:grid-cols-2 gap-3">
               <button
                 type="button"
                 onClick={handleEyeDropper}
-                className="flex-1 py-3 px-4 bg-blue-600 hover:bg-blue-500 text-white font-bold text-sm rounded-xl flex items-center justify-center gap-2 shadow-sm transition-all cursor-pointer"
+                className="flex items-center justify-center gap-2 py-3 px-4 rounded-xl bg-blue-600 hover:bg-blue-700 text-white font-bold text-xs uppercase tracking-wider transition-all shadow-sm cursor-pointer"
               >
-                <Pipette className="w-4 h-4" />
-                <span>Screen Eyedropper</span>
+                <Pipette className="w-4 h-4" /> Pick from Screen
               </button>
 
-              <div className="flex-1 relative flex items-center justify-center py-3 px-4 bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 rounded-xl cursor-pointer">
-                <Palette className="w-4 h-4 mr-2" />
-                <span className="font-bold text-sm text-slate-800 dark:text-slate-200">
-                  Open Native Picker
-                </span>
+              <div className="relative flex items-center justify-center py-3 px-4 rounded-xl bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 text-slate-900 dark:text-white font-bold text-xs uppercase tracking-wider transition-all cursor-pointer">
+                <Palette className="w-4 h-4 mr-2" /> Open Color Wheel
                 <input
                   type="color"
                   value={`#${cleanHex}`}
@@ -137,7 +129,7 @@ export default function ColorPickerPage() {
           </div>
 
           {/* Color Values Output Card */}
-          <div className="lg:col-span-6 bg-white dark:bg-slate-900 border border-slate-200/80 dark:border-slate-800/80 rounded-3xl p-6 shadow-sm flex flex-col justify-between gap-6">
+          <div className="lg:col-span-6 bg-white dark:bg-slate-900 border border-slate-200/80 dark:border-slate-800/80 rounded-3xl p-6 shadow-xs flex flex-col justify-between gap-6">
             <h2 className="text-lg font-bold text-slate-900 dark:text-white">
               Color Coordinates & Values
             </h2>
@@ -186,14 +178,100 @@ export default function ColorPickerPage() {
 
             <Link
               href={`/hex/${cleanHex}`}
-              className="w-full text-center py-3 bg-slate-900 hover:bg-slate-800 text-white font-bold text-xs uppercase tracking-wider rounded-xl transition-all"
+              className="w-full text-center py-3 bg-slate-900 dark:bg-blue-600 hover:bg-slate-800 dark:hover:bg-blue-700 text-white font-bold text-xs uppercase tracking-wider rounded-xl transition-all"
             >
-              Explore Full Color Page →
+              Explore Full Color Specs & Harmonies →
             </Link>
           </div>
         </div>
 
         <AdSlot type="in-content" />
+
+        {/* Comprehensive SEO Content Section */}
+        <ToolSeoContent
+          toolTitle="HEX Color Picker & Online Eyedropper"
+          toolSlug="color-picker"
+          category="Color Utility"
+          overviewTitle="How Does the Online Screen Eyedropper & Color Picker Work?"
+          overviewParagraphs={[
+            'Our online color picker combines native browser Eyedropper API technology with full-spectrum RGB/HSL color synthesis. Instead of taking a screenshot, opening an external graphics editor, and magnifying pixels, you can sample any pixel directly from your desktop screen, web pages, or photos with a single click.',
+            'Once sampled, the color is instantly analyzed across all digital color models (Hexadecimal, RGB, HSL, HSV, CMYK) and matched with our comprehensive dictionary of named color pigments.',
+            'Whether you are building a design system in CSS, inspecting website palettes, or selecting harmonious accents, this tool provides real-time conversions, WCAG accessibility ratios, and zero-latency clipboard copying.',
+          ]}
+          howToSteps={[
+            {
+              step: 'Click "Pick from Screen"',
+              description: 'Activate the native browser magnifying glass eyedropper tool to sample any color pixel on your screen.',
+            },
+            {
+              step: 'Or Use the Visual Color Wheel',
+              description: 'Select colors visually with standard color sliders and saturation gradients.',
+            },
+            {
+              step: 'View Converted Values',
+              description: 'Review instant mathematical representations in HEX, RGB, HSL, HSV, and CMYK format.',
+            },
+            {
+              step: 'Copy or Explore Further',
+              description: 'Copy code snippets to your clipboard or navigate directly to the detailed deep-dive color page.',
+            },
+          ]}
+          features={[
+            {
+              title: 'Native Eyedropper API',
+              description: 'Sample pixel-perfect colors from any window, document, or desktop app in supported browsers.',
+            },
+            {
+              title: 'Instant Multi-Model Sync',
+              description: 'Simultaneously generates HEX, RGB, HSL, and CMYK values without manual conversion.',
+            },
+            {
+              title: 'Local History Logging',
+              description: 'Automatically saves recently sampled colors in your browser session for easy retrieval.',
+            },
+            {
+              title: 'Harmonies & Contrast Links',
+              description: 'Direct deep-linking to color harmonies, complementary schemes, and contrast testing.',
+            },
+            {
+              title: 'Zero Latency & 100% Private',
+              description: 'All color operations run locally on your device with no uploads or data transmission.',
+            },
+          ]}
+          faqs={[
+            {
+              question: 'Which browsers support the Screen Eyedropper tool?',
+              answer: 'The Eyedropper API is supported natively on Chromium-based desktop browsers including Google Chrome, Microsoft Edge, Opera, and Brave. On other browsers, you can utilize the interactive color wheel.',
+            },
+            {
+              question: 'Can I pick colors outside my browser window?',
+              answer: 'Yes! When using supported desktop browsers, the Eyedropper tool can sample colors from any application running on your monitor.',
+            },
+            {
+              question: 'How do I save a color palette I sampled?',
+              answer: 'Sampled colors are saved into your session history, which you can easily export into the Color Palette Generator or copy as CSS variables.',
+            },
+          ]}
+          relatedTools={[
+            {
+              name: 'Color Contrast Checker',
+              href: '/tools/color-contrast-checker',
+              desc: 'Check if your picked color meets WCAG AA/AAA legibility standards.',
+            },
+            {
+              name: 'Color Palette Generator',
+              href: '/tools/palette-generator',
+              desc: 'Build 5-color aesthetic schemes around your picked color.',
+            },
+            {
+              name: 'CSS Color Converter',
+              href: '/tools/css-converter',
+              desc: 'Convert picked colors into Tailwind, CSS variables, and Flutter code.',
+            },
+          ]}
+        />
+
+        <AdSlot type="footer" />
       </main>
 
       <Footer />

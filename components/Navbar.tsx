@@ -31,14 +31,17 @@ export function Navbar() {
   ];
 
   const toolsList = [
-    { href: '/tools/converter', label: 'All-in-One Converter', desc: 'Convert HEX, RGB, HSL, HSV, CMYK' },
-    { href: '/tools/hex-to-rgb', label: 'HEX ⇄ RGB', desc: 'Precision RGB color conversion' },
-    { href: '/tools/hex-to-hsl', label: 'HEX ⇄ HSL', desc: 'Hue, Saturation, Lightness values' },
-    { href: '/tools/hex-to-hsv', label: 'HEX ⇄ HSV', desc: 'Hue, Saturation, Value model' },
-    { href: '/tools/hex-to-cmyk', label: 'HEX ⇄ CMYK', desc: 'Print ready CMYK percentages' },
+    { href: '/tools/color-picker', label: 'HEX Color Picker', desc: 'Visual screen eyedropper & picker' },
+    { href: '/tools/hex-to-rgb', label: 'RGB Converter', desc: 'Precision RGB color conversion' },
+    { href: '/tools/hex-to-hsl', label: 'HSL Converter', desc: 'Hue, Saturation, Lightness values' },
+    { href: '/tools/hex-to-hsv', label: 'HSV Converter', desc: 'Hue, Saturation, Value model' },
+    { href: '/tools/hex-to-cmyk', label: 'CMYK Converter', desc: 'Print ready CMYK percentages' },
     { href: '/tools/gradient-generator', label: 'Gradient Generator', desc: 'CSS multi-stop linear & radial' },
     { href: '/tools/palette-generator', label: 'Palette Generator', desc: 'Harmonies & 5-color palettes' },
-    { href: '/tools/color-picker', label: 'Color Picker & Eyedropper', desc: 'Interactive visual palette picker' },
+    { href: '/tools/color-contrast-checker', label: 'Contrast Checker', desc: 'WCAG 2.1 AA & AAA compliance' },
+    { href: '/tools/color-shades-generator', label: 'Color Shades & Tints', desc: 'Shades, tints and tones scale' },
+    { href: '/tools/color-names', label: 'Color Names Dictionary', desc: 'Search named shades & CSS names' },
+    { href: '/tools/css-converter', label: 'CSS Color Converter', desc: 'CSS4, RGBA, HSLA, Tailwind & XML' },
     { href: '/tools/random-color', label: 'Random Color Generator', desc: 'Instant random color discovery' },
   ];
 

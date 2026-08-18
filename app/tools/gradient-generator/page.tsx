@@ -6,6 +6,7 @@ import { Footer } from '@/components/Footer';
 import { AdSlot } from '@/components/AdSlot';
 import { Breadcrumbs } from '@/components/Breadcrumbs';
 import { CopyButton } from '@/components/CopyButton';
+import { ToolSeoContent } from '@/components/ToolSeoContent';
 import { GRADIENT_PRESETS, generateGradientCss } from '@/lib/gradient-presets';
 import { getRandomHex } from '@/lib/color-utils';
 import { Sparkles, Plus, Trash2, RotateCw, Shuffle } from 'lucide-react';
@@ -68,17 +69,17 @@ export default function GradientGeneratorPage() {
       <main className="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-8">
         <Breadcrumbs
           items={[
-            { label: 'Tools', href: '/tools' },
-            { label: 'Gradient Generator' },
+            { label: 'Color Tools', href: '/tools' },
+            { label: 'CSS Gradient Generator' },
           ]}
         />
 
-        <div className="my-6 text-center max-w-2xl mx-auto">
-          <h1 className="text-3xl font-extrabold text-slate-900 dark:text-white tracking-tight">
-            CSS Gradient Generator
+        <div className="my-6 text-center max-w-3xl mx-auto">
+          <h1 className="text-3xl sm:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight">
+            CSS Gradient Generator & Background Maker
           </h1>
-          <p className="mt-2 text-slate-600 dark:text-slate-400 text-sm">
-            Create beautiful multi-stop linear, radial, and conic gradients with instant CSS & Tailwind export.
+          <p className="mt-2 text-slate-600 dark:text-slate-400 text-sm sm:text-base leading-relaxed">
+            Craft linear, radial, and conic CSS gradients with multi-color stop controls, angle dials, curated aesthetic presets, and instant clipboard CSS export.
           </p>
         </div>
 
@@ -120,7 +121,7 @@ export default function GradientGeneratorPage() {
           </div>
 
           {/* Controls Panel */}
-          <div className="lg:col-span-5 bg-white dark:bg-slate-900 border border-slate-200/80 dark:border-slate-800/80 rounded-3xl p-6 shadow-sm flex flex-col gap-6">
+          <div className="lg:col-span-5 bg-white dark:bg-slate-900 border border-slate-200/80 dark:border-slate-800/80 rounded-3xl p-6 shadow-xs flex flex-col gap-6">
             <h2 className="text-lg font-bold text-slate-900 dark:text-white">
               Gradient Controls
             </h2>
@@ -139,7 +140,7 @@ export default function GradientGeneratorPage() {
                     className={`py-2 text-xs font-bold rounded-xl capitalize transition-all cursor-pointer ${
                       gradientType === type
                         ? 'bg-blue-600 text-white shadow-xs'
-                        : 'bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700'
+                        : 'bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-300'
                     }`}
                   >
                     {type}
@@ -148,12 +149,12 @@ export default function GradientGeneratorPage() {
               </div>
             </div>
 
-            {/* Angle Slider */}
+            {/* Angle Slider (for Linear/Conic) */}
             {gradientType !== 'radial' && (
               <div>
-                <div className="flex justify-between text-xs font-bold text-slate-500 mb-2">
-                  <span>Angle</span>
-                  <span className="font-mono">{angle}°</span>
+                <div className="flex justify-between items-center mb-2">
+                  <label className="text-xs font-bold uppercase text-slate-400">Angle</label>
+                  <span className="font-mono text-xs font-bold text-blue-600">{angle}°</span>
                 </div>
                 <input
                   type="range"
@@ -166,7 +167,7 @@ export default function GradientGeneratorPage() {
               </div>
             )}
 
-            {/* Color Stops List */}
+            {/* Color Stops Manager */}
             <div>
               <div className="flex justify-between items-center mb-3">
                 <label className="text-xs font-bold uppercase text-slate-400">
@@ -176,25 +177,24 @@ export default function GradientGeneratorPage() {
                   <button
                     type="button"
                     onClick={handleAddStop}
-                    className="flex items-center gap-1 text-xs font-bold text-blue-600 dark:text-blue-400 hover:underline cursor-pointer"
+                    className="text-xs font-bold text-blue-600 hover:text-blue-500 flex items-center gap-1 cursor-pointer"
                   >
-                    <Plus className="w-3.5 h-3.5" />
-                    <span>Add Stop</span>
+                    <Plus className="w-3.5 h-3.5" /> Add Stop
                   </button>
                 )}
               </div>
 
               <div className="space-y-3">
-                {stops.map(stop => (
+                {stops.map((stop, idx) => (
                   <div
                     key={stop.id}
-                    className="flex items-center gap-3 p-3 rounded-xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200 dark:border-slate-700"
+                    className="flex items-center gap-3 p-2.5 rounded-xl bg-slate-50 dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700"
                   >
                     <input
                       type="color"
                       value={stop.color}
                       onChange={e => handleStopChange(stop.id, 'color', e.target.value)}
-                      className="w-9 h-9 rounded-lg border-0 cursor-pointer bg-transparent"
+                      className="w-8 h-8 rounded-lg cursor-pointer border-0 bg-transparent"
                     />
                     <input
                       type="text"
@@ -261,6 +261,92 @@ export default function GradientGeneratorPage() {
         </section>
 
         <AdSlot type="in-content" />
+
+        {/* In-Depth SEO Landing Page Section */}
+        <ToolSeoContent
+          toolTitle="CSS Gradient Generator & Background Designer"
+          toolSlug="gradient-generator"
+          category="Design & CSS"
+          overviewTitle="Mastering CSS Gradients: Linear, Radial & Conic"
+          overviewParagraphs={[
+            'CSS gradients allow developers and UI designers to create smooth color transitions between two or more colors without requiring heavy image assets. Because gradients are generated dynamically by the browser rendering engine, they scale infinitely with zero pixelation and negligible file size overhead.',
+            'There are three primary types of CSS gradients: Linear gradients (smooth transitions along a straight directional line or angle), Radial gradients (transitions radiating outward from a central focal point or shape), and Conic gradients (transitions swept 360 degrees around a central axis, often used for color wheels and pie charts).',
+            'Our interactive CSS Gradient Generator lets you customize multiple color stops, fine-tune degree angles, test real-time background previews, and immediately copy production-ready CSS and Tailwind code.',
+          ]}
+          howToSteps={[
+            {
+              step: 'Select Gradient Geometry',
+              description: 'Choose between Linear, Radial, or Conic gradient projection styles.',
+            },
+            {
+              step: 'Set Directional Angle',
+              description: 'Use the 0°–360° angle slider to specify the flow direction of the linear or conic gradient.',
+            },
+            {
+              step: 'Add & Adjust Color Stops',
+              description: 'Add up to 5 color points, tweak hex colors, and drag stop positions along the 0%–100% spectrum.',
+            },
+            {
+              step: 'Copy CSS background Code',
+              description: 'Click "Copy CSS" to grab clean, cross-browser CSS code directly into your stylesheet.',
+            },
+          ]}
+          features={[
+            {
+              title: 'Multi-Stop Color Interpolation',
+              description: 'Blend up to 5 individual color stops for complex, modern mesh-like aesthetic gradients.',
+            },
+            {
+              title: '360° Angle Precision Dial',
+              description: 'Set exact mathematical degree angles for standard diagonal, vertical, or horizontal gradients.',
+            },
+            {
+              title: 'Curated Designer Presets',
+              description: 'Includes handpicked trending color ramps (Sunset, Hyper, Ocean, Neon) for rapid prototyping.',
+            },
+            {
+              title: 'One-Click Randomizer',
+              description: 'Generate fresh harmonious color combinations with a single click or spacebar trigger.',
+            },
+            {
+              title: '100% Pure CSS Export',
+              description: 'Generates standard, un-bloated background properties compatible with all modern browsers.',
+            },
+          ]}
+          faqs={[
+            {
+              question: 'How do I use this gradient in Tailwind CSS?',
+              answer: 'In Tailwind CSS v3+, you can use arbitrary values like `bg-[linear-gradient(135deg,#3B82F6_0%,#8B5CF6_100%)]` or create a reusable utility in your CSS file.',
+            },
+            {
+              question: 'What is the performance impact of CSS gradients vs background images?',
+              answer: 'CSS gradients require zero HTTP network requests, reducing page load times and Largest Contentful Paint (LCP) metrics compared to JPEG/PNG image assets.',
+            },
+            {
+              question: 'Can I animate CSS gradients?',
+              answer: 'While you cannot directly transition the `background-image` property smoothly in standard CSS, you can animate gradients by shifting `background-size` and `background-position`, or using CSS `@property` Houdini registration.',
+            },
+          ]}
+          relatedTools={[
+            {
+              name: 'Color Palette Generator',
+              href: '/tools/palette-generator',
+              desc: 'Create complementary 5-color schemes to use as gradient stops.',
+            },
+            {
+              name: 'Color Shades Generator',
+              href: '/tools/color-shades-generator',
+              desc: 'Generate monochromatic tints and shades for smooth ombre gradients.',
+            },
+            {
+              name: 'HEX to RGB Converter',
+              href: '/tools/hex-to-rgb',
+              desc: 'Convert gradient hex colors into rgba() for opacity effects.',
+            },
+          ]}
+        />
+
+        <AdSlot type="footer" />
       </main>
 
       <Footer />
