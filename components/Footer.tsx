@@ -13,7 +13,7 @@ export function Footer() {
     { name: 'Contrast Checker (WCAG)', href: '/tools/color-contrast-checker' },
     { name: 'Color Mixer & Blender', href: '/tools/color-mixer' },
     { name: 'Color Harmonies', href: '/tools/color-harmonies' },
-    { name: 'Shades & Tints Generator', href: '/tools/shades-generator' },
+    { name: 'Shades & Tints Generator', href: '/tools/color-shades-generator' },
     { name: 'Color Names Dictionary', href: '/tools/color-names' },
     { name: 'CSS & Tailwind Converter', href: '/tools/css-converter' },
   ];
@@ -52,6 +52,7 @@ export function Footer() {
 
   const companyLinks = [
     { name: 'About Color Pickers', href: '/about' },
+    { name: 'Frequently Asked Questions', href: '/faq' },
     { name: 'Privacy Policy', href: '/privacy-policy' },
     { name: 'Terms of Service', href: '/terms' },
     { name: 'Contact Us', href: '/contact' },

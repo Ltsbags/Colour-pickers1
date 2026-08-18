@@ -32,6 +32,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '/tools/css-converter',
     '/tools/random-color',
     '/about',
+    '/faq',
     '/privacy-policy',
     '/terms',
     '/contact',
@@ -40,6 +41,25 @@ export default function sitemap(): MetadataRoute.Sitemap {
     lastModified: new Date().toISOString(),
     changeFrequency: 'weekly' as const,
     priority: route === '' ? 1.0 : route.startsWith('/guides') || route.startsWith('/tools') ? 0.9 : 0.8,
+  }));
+
+  const categoryRoutes = [
+    'blue',
+    'red',
+    'green',
+    'yellow',
+    'orange',
+    'purple',
+    'pink',
+    'brown',
+    'gray',
+    'black',
+    'white',
+  ].map(cat => ({
+    url: `${baseUrl}/colors/${cat}`,
+    lastModified: new Date().toISOString(),
+    changeFrequency: 'weekly' as const,
+    priority: 0.8,
   }));
 
   const guideRoutes = GUIDES.map(guide => ({
@@ -66,5 +86,5 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.7,
   }));
 
-  return [...staticRoutes, ...guideRoutes, ...colorRoutes];
+  return [...staticRoutes, ...categoryRoutes, ...guideRoutes, ...colorRoutes];
 }

@@ -34,6 +34,7 @@ export function Navbar() {
     { href: '/palettes', label: 'Palettes' },
     { href: '/gradients', label: 'Gradients' },
     { href: '/guides', label: 'Guides' },
+    { href: '/faq', label: 'FAQ' },
   ];
 
   const toolsList = [
@@ -44,7 +45,7 @@ export function Navbar() {
     { href: '/tools/color-contrast-checker', label: 'Contrast Checker', desc: 'WCAG 2.1 AA & AAA compliance' },
     { href: '/tools/color-mixer', label: 'Color Mixer', desc: 'Blend 2 colors across ratio percentages' },
     { href: '/tools/color-harmonies', label: 'Color Harmonies', desc: 'Complementary, triadic & analogous' },
-    { href: '/tools/shades-generator', label: 'Shades & Tints', desc: 'Tonal lightness & darkness scales' },
+    { href: '/tools/color-shades-generator', label: 'Shades & Tints', desc: 'Tonal lightness & darkness scales' },
     { href: '/tools/color-names', label: 'Color Names', desc: 'Search 150+ named CSS shades' },
   ];
 

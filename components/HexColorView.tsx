@@ -10,6 +10,7 @@ import { Breadcrumbs } from '@/components/Breadcrumbs';
 import { ColorCard } from '@/components/ColorCard';
 import { TrackColorView } from '@/components/TrackColorView';
 import { POPULAR_COLORS } from '@/lib/popular-colors';
+import { GUIDES } from '@/lib/guides-data';
 import {
   Check,
   X,
@@ -22,7 +23,26 @@ import {
   ArrowRightLeft,
   Info,
   Code,
+  BookOpen,
 } from 'lucide-react';
+
+function getCategoryForColor(hsl: { h: number; s: number; l: number }): { slug: string; name: string } {
+  if (hsl.l >= 93) return { slug: 'white', name: 'White' };
+  if (hsl.l <= 12) return { slug: 'black', name: 'Black' };
+  if (hsl.s <= 14) return { slug: 'gray', name: 'Gray' };
+
+  const h = hsl.h;
+  if (h >= 345 || h < 15) return { slug: 'red', name: 'Red' };
+  if (h >= 15 && h < 45) {
+    return hsl.l < 45 && hsl.s < 60 ? { slug: 'brown', name: 'Brown' } : { slug: 'orange', name: 'Orange' };
+  }
+  if (h >= 45 && h < 70) return { slug: 'yellow', name: 'Yellow' };
+  if (h >= 70 && h < 165) return { slug: 'green', name: 'Green' };
+  if (h >= 165 && h < 260) return { slug: 'blue', name: 'Blue' };
+  if (h >= 260 && h < 315) return { slug: 'purple', name: 'Purple' };
+  if (h >= 315 && h < 345) return { slug: 'pink', name: 'Pink' };
+  return { slug: 'blue', name: 'Blue' };
+}
 
 interface HexColorViewProps {
   hex: string;
@@ -554,6 +574,120 @@ export function HexColorView({
           <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-4">
             {POPULAR_COLORS.slice(0, 6).map(c => (
               <ColorCard key={c.hex} hex={c.hex} name={c.name} />
+            ))}
+          </div>
+        </section>
+
+        {/* Recommended Color Tools for this Color */}
+        <section className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-3xl p-6 sm:p-8 shadow-xs space-y-4">
+          <div className="flex items-center justify-between border-b border-slate-200 dark:border-slate-800 pb-3">
+            <div>
+              <h2 className="text-xl font-bold text-slate-900 dark:text-white">
+                Tools & Utilities for #{hex}
+              </h2>
+              <p className="text-xs text-slate-500">
+                Explore gradients, test contrast ratios, and generate monochromatic shades with #{hex}
+              </p>
+            </div>
+            <Link href="/tools" className="text-xs font-bold text-blue-600 dark:text-blue-400 hover:underline">
+              All Tools →
+            </Link>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+            <Link
+              href="/tools/color-contrast-checker"
+              className="p-4 rounded-2xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200/60 dark:border-slate-700/60 hover:border-blue-500 transition-all group"
+            >
+              <ShieldCheck className="w-5 h-5 text-blue-600 mb-2" />
+              <h3 className="font-bold text-xs text-slate-900 dark:text-white group-hover:text-blue-600">
+                Contrast Checker
+              </h3>
+              <p className="text-[11px] text-slate-500 mt-1">
+                Verify WCAG 2.1 AA/AAA compliance on #{hex} surfaces.
+              </p>
+            </Link>
+
+            <Link
+              href="/tools/color-shades-generator"
+              className="p-4 rounded-2xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200/60 dark:border-slate-700/60 hover:border-blue-500 transition-all group"
+            >
+              <Layers className="w-5 h-5 text-purple-600 mb-2" />
+              <h3 className="font-bold text-xs text-slate-900 dark:text-white group-hover:text-blue-600">
+                Shades & Tints Scale
+              </h3>
+              <p className="text-[11px] text-slate-500 mt-1">
+                Generate 10-step tints and dark shade ramp tokens.
+              </p>
+            </Link>
+
+            <Link
+              href="/tools/gradient-generator"
+              className="p-4 rounded-2xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200/60 dark:border-slate-700/60 hover:border-blue-500 transition-all group"
+            >
+              <Sparkles className="w-5 h-5 text-emerald-600 mb-2" />
+              <h3 className="font-bold text-xs text-slate-900 dark:text-white group-hover:text-blue-600">
+                Gradient Generator
+              </h3>
+              <p className="text-[11px] text-slate-500 mt-1">
+                Build CSS linear and radial gradients starting with #{hex}.
+              </p>
+            </Link>
+
+            <Link
+              href="/tools/palette-generator"
+              className="p-4 rounded-2xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200/60 dark:border-slate-700/60 hover:border-blue-500 transition-all group"
+            >
+              <Palette className="w-5 h-5 text-amber-600 mb-2" />
+              <h3 className="font-bold text-xs text-slate-900 dark:text-white group-hover:text-blue-600">
+                Palette Generator
+              </h3>
+              <p className="text-[11px] text-slate-500 mt-1">
+                Lock #{hex} and generate complementary 5-color palettes.
+              </p>
+            </Link>
+          </div>
+        </section>
+
+        {/* Related Color Guides */}
+        <section className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-3xl p-6 sm:p-8 shadow-xs space-y-4">
+          <div className="flex items-center justify-between border-b border-slate-200 dark:border-slate-800 pb-3">
+            <div>
+              <h2 className="text-xl font-bold text-slate-900 dark:text-white">
+                Related Educational Guides
+              </h2>
+              <p className="text-xs text-slate-500">
+                Learn how color models, web contrast standards, and conversion mathematics work
+              </p>
+            </div>
+            <Link href="/guides" className="text-xs font-bold text-blue-600 dark:text-blue-400 hover:underline">
+              All Guides →
+            </Link>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+            {GUIDES.slice(0, 3).map(guide => (
+              <Link
+                key={guide.slug}
+                href={`/guides/${guide.slug}`}
+                className="p-4 rounded-2xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200/60 dark:border-slate-700/60 hover:border-blue-500 transition-all group flex flex-col justify-between"
+              >
+                <div>
+                  <span className="text-[10px] font-bold uppercase text-blue-600 dark:text-blue-400">
+                    {guide.category}
+                  </span>
+                  <h3 className="font-bold text-xs text-slate-900 dark:text-white group-hover:text-blue-600 line-clamp-2 mt-1">
+                    {guide.title}
+                  </h3>
+                  <p className="text-[11px] text-slate-500 mt-1 line-clamp-2">
+                    {guide.excerpt}
+                  </p>
+                </div>
+                <div className="mt-3 pt-2 border-t border-slate-200/60 dark:border-slate-700/60 flex items-center justify-between text-[10px] text-slate-400">
+                  <span>{guide.readTime}</span>
+                  <span className="font-bold text-blue-600 group-hover:translate-x-0.5 transition-transform">Read →</span>
+                </div>
+              </Link>
             ))}
           </div>
         </section>

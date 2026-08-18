@@ -27,11 +27,25 @@ export const metadata: Metadata = {
 export default function ToolsDirectoryPage() {
   const tools = [
     {
+      title: 'Universal Color Converter',
+      href: '/tools/converter',
+      icon: ArrowRightLeft,
+      color: 'bg-blue-500',
+      description: 'Instant multi-matrix conversion between HEX, RGB, HSL, HSV, CMYK, CSS variables, and Tailwind tokens.',
+    },
+    {
       title: 'HEX Color Picker & Eyedropper',
       href: '/tools/color-picker',
       icon: Pipette,
       color: 'bg-rose-500',
       description: 'Pick colors visually with eyedropper screen support, interactive color wheel, and instant copy.',
+    },
+    {
+      title: 'Image Color Picker',
+      href: '/tools/image-color-picker',
+      icon: Pipette,
+      color: 'bg-amber-500',
+      description: 'Extract pixel colors, dominant palette swatches, and color harmonies from uploaded images locally.',
     },
     {
       title: 'RGB Converter',
@@ -51,7 +65,7 @@ export default function ToolsDirectoryPage() {
       title: 'HSV Converter',
       href: '/tools/hex-to-hsv',
       icon: Sliders,
-      color: 'bg-amber-500',
+      color: 'bg-amber-600',
       description: 'Calculate Hue, Saturation, and Value model coordinates for graphic design software.',
     },
     {
@@ -74,6 +88,20 @@ export default function ToolsDirectoryPage() {
       icon: Layers,
       color: 'bg-teal-500',
       description: 'Generate 5-color aesthetic palettes with spacebar locking, color harmony rules, and shareable URLs.',
+    },
+    {
+      title: 'Color Mixer & Blender',
+      href: '/tools/color-mixer',
+      icon: Sliders,
+      color: 'bg-cyan-500',
+      description: 'Blend two colors together across customizable ratio percentages and step spectrum scales.',
+    },
+    {
+      title: 'Color Harmonies Suite',
+      href: '/tools/color-harmonies',
+      icon: Palette,
+      color: 'bg-pink-600',
+      description: 'Explore complementary, analogous, triadic, tetradic, and split-complementary color wheel schemes.',
     },
     {
       title: 'Color Contrast Checker (WCAG)',

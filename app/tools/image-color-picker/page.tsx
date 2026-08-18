@@ -196,6 +196,31 @@ export default function ImageColorPickerPage() {
     }
   };
 
+  const handleCanvasTouch = (e: React.TouchEvent<HTMLCanvasElement>) => {
+    if (!e.touches || e.touches.length === 0) return;
+    const touch = e.touches[0];
+    const canvas = canvasRef.current;
+    if (!canvas) return;
+    const ctx = canvas.getContext('2d', { willReadFrequently: true });
+    if (!ctx) return;
+
+    const rect = canvas.getBoundingClientRect();
+    const x = Math.floor((touch.clientX - rect.left) * (canvas.width / rect.width));
+    const y = Math.floor((touch.clientY - rect.top) * (canvas.height / rect.height));
+
+    if (x >= 0 && x < canvas.width && y >= 0 && y < canvas.height) {
+      const pixel = ctx.getImageData(x, y, 1, 1).data;
+      const hex = rgbToHex(pixel[0], pixel[1], pixel[2]);
+      const name = getClosestColorName(hex).name;
+      setPickedColor({
+        hex,
+        rgb: { r: pixel[0], g: pixel[1], b: pixel[2] },
+        name,
+      });
+      addToColorHistory(hex, name);
+    }
+  };
+
   const handleFileUpload = (file: File) => {
     if (!file.type.startsWith('image/')) {
       setErrorMsg('Please upload a valid image file (PNG, JPG, WEBP, SVG, GIF).');
@@ -335,7 +360,9 @@ export default function ImageColorPickerPage() {
                   onClick={handleCanvasClick}
                   onMouseMove={handleCanvasMouseMove}
                   onMouseLeave={() => setHoverColor(null)}
-                  className="max-w-full h-auto cursor-crosshair rounded-xl shadow-md transition-shadow hover:shadow-lg"
+                  onTouchStart={handleCanvasTouch}
+                  onTouchMove={handleCanvasTouch}
+                  className="max-w-full h-auto cursor-crosshair rounded-xl shadow-md transition-shadow hover:shadow-lg touch-none"
                 />
               </div>
             </div>

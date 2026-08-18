@@ -32,10 +32,21 @@ export default function PrivacyPolicyPage() {
             </p>
 
             <h2 className="font-bold text-base text-slate-900 dark:text-white pt-2">
-              2. Cookies and Local Storage
+              2. Cookies and Local Browser Storage
             </h2>
             <p>
-              We use standard browser <code className="font-mono bg-slate-100 dark:bg-slate-800 px-1 py-0.5 rounded">localStorage</code> solely to remember your UI theme preference (Dark or Light mode).
+              We utilize browser <code className="font-mono bg-slate-100 dark:bg-slate-800 px-1 py-0.5 rounded">localStorage</code> solely to enhance your client-side experience:
+            </p>
+            <ul className="list-disc list-inside space-y-1 text-xs pl-2">
+              <li>
+                <strong>Theme Preferences (<code className="font-mono">colour-lab-theme</code>, <code className="font-mono">chroma-theme</code>):</strong> Persists your chosen appearance mode (Light or Dark theme) between sessions.
+              </li>
+              <li>
+                <strong>Recent Color History (<code className="font-mono">color_pickers_history</code>):</strong> Temporarily stores your recent color swatch inspections locally on your device so you can revisit recent color codes without needing an account.
+              </li>
+            </ul>
+            <p className="pt-2">
+              <strong>Uploaded Image Privacy:</strong> When you use our Image Color Picker, your image file is decoded strictly within your browser&apos;s HTML5 Canvas. No image data, bitmap frames, or pixel streams are ever transmitted to or stored on any server.
             </p>
 
             <h2 className="font-bold text-base text-slate-900 dark:text-white pt-2">

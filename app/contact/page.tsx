@@ -112,6 +112,10 @@ export default function ContactPage() {
                 <Send className="w-4 h-4" />
                 <span>Send Message</span>
               </button>
+
+              <p className="text-[11px] text-center text-slate-500 dark:text-slate-400">
+                🔒 We respect your privacy. Your email will only be used to respond to your inquiry and is never shared with third parties.
+              </p>
             </form>
           )}
         </div>

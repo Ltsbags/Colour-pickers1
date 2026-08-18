@@ -137,7 +137,7 @@ export default function HomePage() {
     {
       title: 'Shades & Tints Generator',
       desc: 'Generate 8-step lighter tints, darker shades, and muted tones',
-      href: '/tools/shades-generator',
+      href: '/tools/color-shades-generator',
       icon: Layers,
       color: 'from-violet-500 to-purple-600',
     },
@@ -473,6 +473,56 @@ export default function HomePage() {
             </p>
           </div>
 
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 pt-2">
+            <div className="p-5 rounded-2xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200/60 dark:border-slate-700/60 space-y-2">
+              <span className="font-mono text-xs font-bold text-blue-600 dark:text-blue-400">HEX (#RRGGBB)</span>
+              <h4 className="font-bold text-sm text-slate-900 dark:text-white">Hexadecimal Code</h4>
+              <p className="text-xs text-slate-600 dark:text-slate-300 leading-relaxed">
+                Base-16 shorthand notation for RGB values. Standard across HTML and CSS stylesheets. Supports 3-digit (#RGB) and 8-digit (#RRGGBBAA) alpha channels.
+              </p>
+            </div>
+
+            <div className="p-5 rounded-2xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200/60 dark:border-slate-700/60 space-y-2">
+              <span className="font-mono text-xs font-bold text-emerald-600 dark:text-emerald-400">RGB (0–255)</span>
+              <h4 className="font-bold text-sm text-slate-900 dark:text-white">Red, Green, Blue</h4>
+              <p className="text-xs text-slate-600 dark:text-slate-300 leading-relaxed">
+                Additive light model for digital monitors and display panels, mixing three 8-bit integer channels (0 to 255) to render over 16.7 million distinct hues.
+              </p>
+            </div>
+
+            <div className="p-5 rounded-2xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200/60 dark:border-slate-700/60 space-y-2">
+              <span className="font-mono text-xs font-bold text-purple-600 dark:text-purple-400">HSL (0–360°, %, %)</span>
+              <h4 className="font-bold text-sm text-slate-900 dark:text-white">Hue, Saturation, Lightness</h4>
+              <p className="text-xs text-slate-600 dark:text-slate-300 leading-relaxed">
+                Cylindrical geometry mapping colors intuitively for designers. Simplifies programmatic dark-mode color variations and UI state shades.
+              </p>
+            </div>
+
+            <div className="p-5 rounded-2xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200/60 dark:border-slate-700/60 space-y-2">
+              <span className="font-mono text-xs font-bold text-amber-600 dark:text-amber-400">HSV / HSB</span>
+              <h4 className="font-bold text-sm text-slate-900 dark:text-white">Hue, Saturation, Value</h4>
+              <p className="text-xs text-slate-600 dark:text-slate-300 leading-relaxed">
+                Preferred by graphic illustration tools like Figma and Adobe Photoshop. Represents color brilliance from pure black to maximum vibrancy.
+              </p>
+            </div>
+
+            <div className="p-5 rounded-2xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200/60 dark:border-slate-700/60 space-y-2">
+              <span className="font-mono text-xs font-bold text-pink-600 dark:text-pink-400">CMYK (0–100%)</span>
+              <h4 className="font-bold text-sm text-slate-900 dark:text-white">Cyan, Magenta, Yellow, Key</h4>
+              <p className="text-xs text-slate-600 dark:text-slate-300 leading-relaxed">
+                Subtractive 4-color printing ink process. Essential for preparing brand assets and packaging artwork for physical press machines.
+              </p>
+            </div>
+
+            <div className="p-5 rounded-2xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200/60 dark:border-slate-700/60 space-y-2">
+              <span className="font-mono text-xs font-bold text-teal-600 dark:text-teal-400">Harmonies</span>
+              <h4 className="font-bold text-sm text-slate-900 dark:text-white">Color Theory & Wheels</h4>
+              <p className="text-xs text-slate-600 dark:text-slate-300 leading-relaxed">
+                Mathematical geometric pairings: Complementary (180° opposite), Analogous (±30° adjacent), Triadic (120° equidistant), and Monochromatic scales.
+              </p>
+            </div>
+          </div>
+
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
             <div className="space-y-3">
               <h3 className="text-base font-bold text-slate-900 dark:text-white">
@@ -527,11 +577,20 @@ export default function HomePage() {
 
         {/* Frequently Asked Questions */}
         <section className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-3xl p-8 shadow-xs space-y-6">
-          <div className="flex items-center gap-2">
-            <HelpCircle className="w-5 h-5 text-blue-600 dark:text-blue-400" />
-            <h2 className="text-2xl font-bold text-slate-900 dark:text-white">
-              Frequently Asked Questions
-            </h2>
+          <div className="flex items-center justify-between">
+            <div className="flex items-center gap-2">
+              <HelpCircle className="w-5 h-5 text-blue-600 dark:text-blue-400" />
+              <h2 className="text-2xl font-bold text-slate-900 dark:text-white">
+                Frequently Asked Questions
+              </h2>
+            </div>
+            <Link
+              href="/faq"
+              className="text-xs font-bold text-blue-600 dark:text-blue-400 hover:underline flex items-center gap-1"
+            >
+              <span>View All FAQs</span>
+              <ArrowRight className="w-3.5 h-3.5" />
+            </Link>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 text-sm text-slate-600 dark:text-slate-300">
