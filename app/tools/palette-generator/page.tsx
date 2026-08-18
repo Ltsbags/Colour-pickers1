@@ -263,7 +263,7 @@ export default function PaletteGeneratorPage() {
           features={[
             {
               title: 'Spacebar Instant Randomization',
-              description: 'Rapidly cycle through aesthetic palettes with zero lag or page refreshes.',
+              description: 'Rapidly cycle through aesthetic palettes without page refreshes.',
             },
             {
               title: 'Independent Slot Locking',

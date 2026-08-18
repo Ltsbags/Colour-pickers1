@@ -326,7 +326,7 @@ export default function ColorShadesGeneratorPage() {
           features={[
             {
               title: 'Mathematical Lightness Interpolation',
-              description: 'Generates step-by-step increments with linear RGB color mixing and zero clipping.',
+              description: 'Generates step-by-step increments with linear RGB color mixing without color clipping.',
             },
             {
               title: 'Complete Three-Way Matrix',

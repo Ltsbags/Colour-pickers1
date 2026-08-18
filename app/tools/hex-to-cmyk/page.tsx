@@ -93,7 +93,7 @@ export default function HexToCmykPage() {
               description: 'Adjusting any ink percentage instantly recomputes the equivalent RGB and HEX preview.',
             },
             {
-              title: 'Zero Plugin or App Requirement',
+              title: 'No Plugins or Downloads Required',
               description: 'Get immediate print specs directly in your web browser without opening heavy desktop software.',
             },
             {

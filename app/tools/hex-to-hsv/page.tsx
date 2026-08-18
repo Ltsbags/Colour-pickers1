@@ -14,7 +14,7 @@ export const metadata: Metadata = {
     canonical: 'https://colorpickers.app/tools/hex-to-hsv',
   },
   openGraph: {
-    title: 'HEX to HSV / HSB Color Converter | High Precision',
+    title: 'HEX to HSV / HSB Color Converter | Color Tools',
     description: 'Transform hex codes into graphic-design friendly HSV / HSB color space.',
     url: 'https://colorpickers.app/tools/hex-to-hsv',
     type: 'website',
@@ -86,7 +86,7 @@ export default function HexToHsvPage() {
             },
             {
               title: 'Precise Percentage Scaling',
-              description: 'Delivers high-precision rounding to ensure color fidelity during design asset handoffs.',
+              description: 'Delivers consistent rounding to maintain color fidelity during design asset handoffs.',
             },
             {
               title: 'Synchronized Model Calculations',
@@ -94,7 +94,7 @@ export default function HexToHsvPage() {
             },
             {
               title: 'Pure Client-Side Math',
-              description: 'Zero network delays with instant conversion inside your browser.',
+              description: 'Color calculations run locally in your browser without requiring network requests.',
             },
             {
               title: 'Mobile & Desktop Optimized',

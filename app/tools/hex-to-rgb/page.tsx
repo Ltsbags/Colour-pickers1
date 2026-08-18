@@ -91,7 +91,7 @@ export default function HexToRgbPage() {
             },
             {
               title: 'One-Click Clipboard Copying',
-              description: 'Instant zero-hassle copying for raw decimal values, CSS rgb() functions, and hexadecimal strings.',
+              description: 'Fast, one-click copying for raw decimal values, CSS rgb() functions, and hexadecimal strings.',
             },
             {
               title: 'Intelligent Channel Clamping',

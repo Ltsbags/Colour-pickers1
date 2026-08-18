@@ -90,7 +90,7 @@ export default function HexToHslPage() {
             },
             {
               title: 'Bidirectional Synced Sliders',
-              description: 'Changes to any HSL channel update the HEX string instantly with zero rounding drift.',
+              description: 'Changes to any HSL channel update the HEX string with continuous synchronization.',
             },
             {
               title: 'Color Wheel Angle Guide',

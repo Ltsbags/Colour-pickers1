@@ -23,7 +23,7 @@ export const CATEGORIES_MAP: Record<string, CategoryData> = {
     uiUsage:
       'Ideal for primary action buttons, focused input outlines, active navigation links, and primary brand logos. Medium-to-dark blues (#1D4ED8, #1E40AF) provide outstanding WCAG AA contrast on white backgrounds.',
     accessibilityNotes:
-      'Pure royal blue (#0000FF) can cause chromostereopsis when paired with pure red. Opt for desaturated or balanced blues like Bright Blue (#3B82F6) for comfortable screen readability.',
+      'Pure blue (#0000FF) can cause chromostereopsis when paired with pure red. Opt for desaturated or balanced blues like Bright Blue (#3B82F6) for comfortable screen readability.',
     colors: [
       { name: 'Royal Blue', hex: '4169E1' },
       { name: 'Bright Blue', hex: '3B82F6' },
