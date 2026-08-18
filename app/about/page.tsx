@@ -8,7 +8,7 @@ import { Palette, Zap, ShieldCheck, Eye, Layers } from 'lucide-react';
 
 export const metadata: Metadata = {
   title: 'About Color Pickers | Modern Color Tools & Converters',
-  description: 'Learn about Color Pickers, the fast, zero-latency color suite built for designers, developers, and digital creators.',
+  description: 'Learn about Color Pickers, the modern color toolkit built for designers, developers, and digital creators.',
 };
 
 export default function AboutPage() {
@@ -24,7 +24,7 @@ export default function AboutPage() {
             About Color Pickers
           </h1>
           <p className="text-slate-600 dark:text-slate-400 text-base leading-relaxed">
-            Color Pickers was engineered to fix the slow, cluttered experience of traditional color conversion tools. Built on Next.js App Router and TypeScript, Color Pickers executes all color math directly in the browser with sub-millisecond performance and zero server delays.
+            Color Pickers was built to provide a fast, focused experience for color conversions and palette design. Built on Next.js App Router and TypeScript, Color Pickers executes color calculations directly in your browser without requiring server roundtrips.
           </p>
 
           <AdSlot type="header" />
@@ -35,10 +35,10 @@ export default function AboutPage() {
                 <Zap className="w-5 h-5" />
               </div>
               <h2 className="font-bold text-lg text-slate-900 dark:text-white">
-                Sub-Millisecond Speed
+                Client-Side Processing
               </h2>
               <p className="text-xs text-slate-500 dark:text-slate-400 leading-relaxed">
-                All HEX, RGB, HSL, HSV, and CMYK transformations run client-side. No network roundtrips or loading spinners.
+                All HEX, RGB, HSL, HSV, and CMYK transformations run client-side in your browser.
               </p>
             </div>
 

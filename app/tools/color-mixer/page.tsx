@@ -304,8 +304,8 @@ export default function ColorMixerPage() {
           ]}
           features={[
             {
-              title: 'Sub-Millisecond Interpolation',
-              description: 'Performs 24-bit linear RGB channel blending instantaneously.',
+              title: 'Real-Time RGB Interpolation',
+              description: 'Performs 24-bit linear RGB channel blending directly in your browser.',
             },
             {
               title: 'Interactive 11-Step Gradient',

@@ -60,7 +60,7 @@ const FAQ_SECTIONS = [
       },
       {
         q: 'What are 8-digit and 4-digit HEX codes?',
-        a: '8-digit hex codes (#RRGGBBAA) and 4-digit shorthand codes (#RGBA) append an alpha channel representing opacity from 00 (0% transparent) to FF (100% opaque). For example, #3B82F680 renders Royal Blue with 50% opacity.',
+        a: '8-digit hex codes (#RRGGBBAA) and 4-digit shorthand codes (#RGBA) append an alpha channel representing opacity from 00 (0% transparent) to FF (100% opaque). For example, #3B82F680 renders Bright Blue with 50% opacity.',
       },
     ],
   },

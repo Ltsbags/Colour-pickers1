@@ -98,8 +98,8 @@ export default function HexToRgbPage() {
               description: 'Strictly bounds RGB inputs between 0 and 255 to eliminate out-of-gamut rendering errors in production.',
             },
             {
-              title: '100% Client-Side & Private',
-              description: 'All color mathematics execute instantaneously in your browser with zero server roundtrips or tracking.',
+              title: 'Client-Side Color Math',
+              description: 'Color calculations run locally in your browser without requiring server roundtrips.',
             },
             {
               title: 'Curated Color Name Matcher',

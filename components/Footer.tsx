@@ -40,7 +40,7 @@ export function Footer() {
   ];
 
   const popularColors = [
-    { name: '#3B82F6 Royal Blue', href: '/hex/3B82F6' },
+    { name: '#3B82F6 Bright Blue', href: '/hex/3B82F6' },
     { name: '#10B981 Emerald Green', href: '/hex/10B981' },
     { name: '#F59E0B Amber Gold', href: '/hex/F59E0B' },
     { name: '#8B5CF6 Purple Accent', href: '/hex/8B5CF6' },
@@ -69,11 +69,11 @@ export function Footer() {
           <div className="lg:col-span-2 flex flex-col gap-4">
             <Logo size="md" variant="dark" />
             <p className="text-slate-400 text-xs sm:text-sm leading-relaxed max-w-sm">
-              The premier zero-latency color suite for web designers and software engineers. High-precision HEX, RGB, HSL, HSV, CMYK conversions, gradient generators, harmonies, and WCAG accessibility standards.
+              A modern color toolkit for designers and developers. Accurate HEX, RGB, HSL, HSV, and CMYK conversions, gradient generators, harmonies, and WCAG accessibility standards.
             </p>
             <div className="flex items-center gap-2 text-xs text-emerald-400">
               <span className="inline-block w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
-              <span>100% Client-Side Processing • Zero Data Transmitted</span>
+              <span>Fast Client-Side Processing • Local Color Calculations</span>
             </div>
           </div>
 

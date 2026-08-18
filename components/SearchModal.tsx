@@ -232,7 +232,7 @@ export function SearchModal({ isOpen, onClose }: SearchModalProps) {
               <span>Select</span>
             </span>
           </div>
-          <span className="text-slate-400">Fast Sub-Millisecond Color Engine</span>
+          <span className="text-slate-400">Client-Side Color Engine</span>
         </div>
       </div>
     </div>

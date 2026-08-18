@@ -28,7 +28,7 @@ export default function PrivacyPolicyPage() {
               1. Information We Collect
             </h2>
             <p>
-              Color Pickers operates primarily as a client-side tool. Color conversions, gradient generations, and palette creations happen directly inside your web browser. We do not collect, store, or transmit your color choices or personal data to external database servers.
+              Color Pickers operates with client-side color processing. Color conversions, gradient generations, and palette creations happen directly inside your web browser. Color calculations and image processing occur locally in your browser without requiring server-side color storage.
             </p>
 
             <h2 className="font-bold text-base text-slate-900 dark:text-white pt-2">
@@ -42,11 +42,11 @@ export default function PrivacyPolicyPage() {
                 <strong>Theme Preferences (<code className="font-mono">colour-lab-theme</code>, <code className="font-mono">chroma-theme</code>):</strong> Persists your chosen appearance mode (Light or Dark theme) between sessions.
               </li>
               <li>
-                <strong>Recent Color History (<code className="font-mono">color_pickers_history</code>):</strong> Temporarily stores your recent color swatch inspections locally on your device so you can revisit recent color codes without needing an account.
+                <strong>Recent Color History (<code className="font-mono">color_pickers_history</code>):</strong> Stores your recent color swatch inspections locally on your device so you can revisit recent color codes.
               </li>
             </ul>
             <p className="pt-2">
-              <strong>Uploaded Image Privacy:</strong> When you use our Image Color Picker, your image file is decoded strictly within your browser&apos;s HTML5 Canvas. No image data, bitmap frames, or pixel streams are ever transmitted to or stored on any server.
+              <strong>Uploaded Image Processing:</strong> Images are processed locally in your browser and are not uploaded to our servers. When you use our Image Color Picker, your image file is decoded and sampled strictly within your browser&apos;s HTML5 Canvas.
             </p>
 
             <h2 className="font-bold text-base text-slate-900 dark:text-white pt-2">

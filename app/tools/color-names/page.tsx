@@ -222,7 +222,7 @@ export default function ColorNamesDictionaryPage() {
             },
             {
               title: 'Instant Real-Time Search Filter',
-              description: 'Zero-latency filtering across thousands of color name permutations.',
+              description: 'Fast client-side filtering across color names and hexadecimal values.',
             },
             {
               title: 'Family Spectrum Categorization',

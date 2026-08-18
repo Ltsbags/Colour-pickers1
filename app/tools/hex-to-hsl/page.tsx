@@ -97,8 +97,8 @@ export default function HexToHslPage() {
               description: 'Visual 0°–360° indicator clearly positions your color in primary and secondary spectra.',
             },
             {
-              title: 'Zero Latency Browser Math',
-              description: 'Lightning-fast calculations executed client-side with native floating-point precision.',
+              title: 'Fast Browser-Based Math',
+              description: 'Calculations execute client-side directly in your browser with floating-point accuracy.',
             },
             {
               title: 'Integrated Palette Generator',
@@ -140,7 +140,7 @@ export default function HexToHslPage() {
               ],
               [
                 <span key="2" className="inline-block w-4 h-4 rounded-full bg-[#3B82F6] border" />,
-                'Royal Blue',
+                'Bright Blue',
                 '#3B82F6',
                 '217°, 91%, 60%',
                 'hsl(217deg 91% 60%)',

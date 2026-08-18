@@ -152,7 +152,7 @@ export default function ToolsDirectoryPage() {
             Professional Color Tools Suite
           </h1>
           <p className="mt-3 text-slate-600 dark:text-slate-400 text-base leading-relaxed">
-            Fast, zero-latency color utility tools designed for web designers, developers, and digital artists.
+            Fast client-side color utility tools designed for web designers, developers, and digital artists.
           </p>
         </div>
 

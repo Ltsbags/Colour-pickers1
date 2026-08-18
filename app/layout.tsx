@@ -5,7 +5,7 @@ import { ThemeProvider } from '@/components/ThemeProvider';
 
 export const metadata: Metadata = {
   title: 'Color Pickers - Modern Color Tools & Converters',
-  description: 'Fast, client-side zero-latency color converters (HEX, RGB, HSL, HSV, CMYK), gradient generator, color palette suite, and WCAG accessibility standards.',
+  description: 'Fast client-side color converters (HEX, RGB, HSL, HSV, CMYK), gradient generator, color palette suite, and WCAG accessibility standards.',
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

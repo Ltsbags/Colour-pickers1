@@ -300,8 +300,8 @@ export default function CssColorConverterPage() {
               description: 'Provides exact arbitrary class strings for utility-first styling.',
             },
             {
-              title: 'Zero Latency Client-Side Computation',
-              description: 'Instant mathematical conversions with no server lag or data collection.',
+              title: 'Client-Side Color Processing',
+              description: 'Fast mathematical conversions computed directly in your browser.',
             },
           ]}
           comparisonTable={{

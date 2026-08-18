@@ -1,5 +1,5 @@
-// Complete Color Utility Engine for Colour Lab
-// Performs high-precision conversion between HEX, RGB, HSL, HSV, and CMYK
+// Color Utility Engine for Color Pickers
+// Performs client-side conversions between HEX, RGB, HSL, HSV, and CMYK
 // Calculates WCAG Contrast Ratios, Color Harmonies, Shades, Tints, and Tones
 
 export interface RGB {

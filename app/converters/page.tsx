@@ -20,14 +20,14 @@ import {
 export const metadata: Metadata = {
   title: 'Color Converters Suite | HEX, RGB, HSL, HSV, CMYK & CSS',
   description:
-    'Free zero-latency color converters for web designers and software developers. Convert between HEX, RGB, HSL, HSV, CMYK, CSS Variables, and Tailwind classes.',
+    'Accurate client-side color converters for web designers and software developers. Convert between HEX, RGB, HSL, HSV, CMYK, CSS Variables, and Tailwind classes.',
   alternates: {
     canonical: 'https://color-pickers.com/converters',
   },
   openGraph: {
     title: 'Color Converters Suite | HEX, RGB, HSL, HSV, CMYK & CSS',
     description:
-      'Free zero-latency color converters. Convert between HEX, RGB, HSL, HSV, CMYK, CSS Variables, and Tailwind classes.',
+      'Fast client-side color converters. Convert between HEX, RGB, HSL, HSV, CMYK, CSS Variables, and Tailwind classes.',
     url: 'https://color-pickers.com/converters',
     type: 'website',
   },
@@ -102,7 +102,7 @@ export default function ConvertersPage() {
             Color Format Converters
           </h1>
           <p className="text-slate-600 dark:text-slate-400 text-sm sm:text-base leading-relaxed">
-            High-precision, mathematically verified color space transformation tools. Convert colors between HEX, RGB, HSL, HSV, CMYK, CSS variables, and Tailwind tokens with zero server lag.
+            Accurate, client-side color space transformation tools. Convert colors between HEX, RGB, HSL, HSV, CMYK, CSS variables, and Tailwind tokens directly in your browser.
           </p>
         </div>
 

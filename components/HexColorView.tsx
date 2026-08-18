@@ -11,6 +11,7 @@ import { ColorCard } from '@/components/ColorCard';
 import { TrackColorView } from '@/components/TrackColorView';
 import { POPULAR_COLORS } from '@/lib/popular-colors';
 import { GUIDES } from '@/lib/guides-data';
+import { getColorResolution } from '@/lib/color-names';
 import {
   Check,
   X,
@@ -95,6 +96,8 @@ export function HexColorView({
   const cssVarString = `--color-primary: #${hex};`;
   const tailwindBg = `bg-[#${hex}]`;
 
+  const resolution = getColorResolution(hex);
+
   return (
     <div className="min-h-screen flex flex-col bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-slate-100">
       <Navbar />
@@ -141,13 +144,38 @@ export function HexColorView({
                   >
                     #{hex}
                   </h1>
-                  <p
-                    className={`text-base font-semibold mt-1 ${
-                      isLight ? 'text-slate-800' : 'text-slate-200'
-                    }`}
-                  >
-                    {colorName}
-                  </p>
+                  <div className="mt-1 space-y-1">
+                    <p
+                      className={`text-base font-semibold ${
+                        isLight ? 'text-slate-800' : 'text-slate-200'
+                      }`}
+                    >
+                      {resolution.isExactCss
+                        ? resolution.name
+                        : `Descriptive Name: ${resolution.name}`}
+                    </p>
+                    {resolution.isExactCss ? (
+                      <span
+                        className={`inline-block text-[11px] font-medium px-2 py-0.5 rounded-full ${
+                          isLight ? 'bg-black/10 text-slate-800' : 'bg-white/20 text-slate-100'
+                        }`}
+                      >
+                        Official CSS Named Color
+                      </span>
+                    ) : (
+                      <p
+                        className={`text-xs ${
+                          isLight ? 'text-slate-700' : 'text-slate-300'
+                        }`}
+                      >
+                        Closest CSS Named Color:{' '}
+                        <span className="font-semibold">{resolution.closestCssName}</span>{' '}
+                        <span className="font-mono text-[10px]">
+                          (#{resolution.closestCssHex})
+                        </span>
+                      </p>
+                    )}
+                  </div>
                 </div>
               </div>
             </div>

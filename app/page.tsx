@@ -94,7 +94,7 @@ export default function HomePage() {
   const toolsList = [
     {
       title: 'Universal Converter',
-      desc: 'Instant HEX, RGB, HSL, HSV, and CMYK transformations with zero delay',
+      desc: 'Accurate HEX, RGB, HSL, HSV, and CMYK transformations directly in your browser',
       href: '/tools/converter',
       icon: ArrowRightLeft,
       color: 'from-blue-500 to-indigo-600',
@@ -193,7 +193,7 @@ export default function HomePage() {
               </h1>
 
               <p className="text-slate-600 dark:text-slate-400 text-base sm:text-lg max-w-xl leading-relaxed">
-                Pick colors, generate palettes, convert between HEX, RGB, HSL, HSV, CMYK, test WCAG contrast, and copy CSS codes instantly with zero server lag.
+                Pick colors, generate palettes, convert between HEX, RGB, HSL, HSV, CMYK, test WCAG contrast, and copy CSS codes directly in your browser.
               </p>
 
               {/* Feature Pills */}
@@ -202,7 +202,7 @@ export default function HomePage() {
                   <div className="w-4 h-4 rounded-full bg-purple-100 dark:bg-purple-900/60 text-purple-600 dark:text-purple-300 flex items-center justify-center">
                     <Check className="w-2.5 h-2.5 stroke-[3]" />
                   </div>
-                  <span>Zero Server Latency</span>
+                  <span>Fast Client-Side Processing</span>
                 </div>
 
                 <div className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 text-xs font-semibold">
@@ -216,7 +216,7 @@ export default function HomePage() {
                   <div className="w-4 h-4 rounded-full bg-teal-100 dark:bg-teal-900/60 text-teal-600 dark:text-teal-300 flex items-center justify-center">
                     <Check className="w-2.5 h-2.5 stroke-[3]" />
                   </div>
-                  <span>100% Free & Private</span>
+                  <span>100% Free to Use</span>
                 </div>
               </div>
 
@@ -299,7 +299,7 @@ export default function HomePage() {
                 Complete Color Tools Suite
               </h2>
               <p className="text-xs text-slate-500 dark:text-slate-400 mt-1">
-                Zero-latency color processing tools executing directly inside your browser
+                Fast client-side color processing tools executing directly inside your browser
               </p>
             </div>
             <Link
@@ -529,7 +529,7 @@ export default function HomePage() {
                 What is a Color Picker?
               </h3>
               <p className="text-xs leading-relaxed">
-                A digital color picker is a graphical tool that lets users select, adjust, and inspect color values. It translates the physics of screen-emitted light into exact numerical codes like HEX, RGB, and HSL. Our tool executes all math locally in WebAssembly and TypeScript with sub-millisecond precision.
+                A digital color picker is a graphical tool that lets users select, adjust, and inspect color values. It translates the physics of screen-emitted light into exact numerical codes like HEX, RGB, and HSL. Our tool executes color math locally in your browser using TypeScript.
               </p>
             </div>
 

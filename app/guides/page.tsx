@@ -141,7 +141,7 @@ export default function GuidesIndexPage() {
             Put Color Theory Into Practice
           </h2>
           <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
-            Test any concept from our guides using our free zero-latency browser suite: Palette Generator, Contrast Checker, Color Mixer, and HEX/RGB Converters.
+            Test any concept from our guides using our free browser-based suite: Palette Generator, Contrast Checker, Color Mixer, and HEX/RGB Converters.
           </p>
           <div className="flex flex-wrap justify-center gap-3 pt-2">
             <Link

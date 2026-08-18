@@ -40,7 +40,7 @@ export default function ColorShadesGeneratorPage() {
   };
 
   const presetColors = [
-    { name: 'Royal Blue', hex: '3B82F6' },
+    { name: 'Bright Blue', hex: '3B82F6' },
     { name: 'Emerald Green', hex: '10B981' },
     { name: 'Persimmon Red', hex: 'EF4444' },
     { name: 'Amber Gold', hex: 'F59E0B' },

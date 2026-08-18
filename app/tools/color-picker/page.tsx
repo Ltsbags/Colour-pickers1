@@ -196,7 +196,7 @@ export default function ColorPickerPage() {
           overviewParagraphs={[
             'Our online color picker combines native browser Eyedropper API technology with full-spectrum RGB/HSL color synthesis. Instead of taking a screenshot, opening an external graphics editor, and magnifying pixels, you can sample any pixel directly from your desktop screen, web pages, or photos with a single click.',
             'Once sampled, the color is instantly analyzed across all digital color models (Hexadecimal, RGB, HSL, HSV, CMYK) and matched with our comprehensive dictionary of named color pigments.',
-            'Whether you are building a design system in CSS, inspecting website palettes, or selecting harmonious accents, this tool provides real-time conversions, WCAG accessibility ratios, and zero-latency clipboard copying.',
+            'Whether you are building a design system in CSS, inspecting website palettes, or selecting harmonious accents, this tool provides real-time conversions, WCAG accessibility ratios, and one-click clipboard copying.',
           ]}
           howToSteps={[
             {
@@ -234,8 +234,8 @@ export default function ColorPickerPage() {
               description: 'Direct deep-linking to color harmonies, complementary schemes, and contrast testing.',
             },
             {
-              title: 'Zero Latency & 100% Private',
-              description: 'All color operations run locally on your device with no uploads or data transmission.',
+              title: 'Fast Client-Side Processing',
+              description: 'All color operations run locally in your browser without requiring server roundtrips.',
             },
           ]}
           faqs={[

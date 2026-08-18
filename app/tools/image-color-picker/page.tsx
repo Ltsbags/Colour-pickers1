@@ -42,7 +42,7 @@ export default function ImageColorPickerPage() {
   }>({
     hex: '3B82F6',
     rgb: { r: 59, g: 130, b: 246 },
-    name: 'Royal Blue',
+    name: 'Bright Blue',
   });
   const [hoverColor, setHoverColor] = useState<string | null>(null);
   const [palette, setPalette] = useState<string[]>([
@@ -326,7 +326,7 @@ export default function ImageColorPickerPage() {
                   </span>
                 </div>
                 <div className="text-[11px] text-slate-400">
-                  🔒 100% Private: All image processing runs locally in your browser.
+                  🔒 Images are processed locally in your browser and are not uploaded to our servers.
                 </div>
               </div>
 
@@ -520,7 +520,7 @@ export default function ImageColorPickerPage() {
             'Sample exact pixel colors from any uploaded photo, screenshot, or graphic with a crosshair cursor.',
             'Automatic dominant color palette extraction powered by HTML5 Canvas image quantization.',
             'Instant calculation of HEX, RGB, HSL, HSV, CMYK values, and closest named color match.',
-            '100% Client-Side Privacy: Your images are never sent to external servers or cloud storage.',
+            'Images are processed locally in your browser and are not uploaded to our servers.',
           ]}
           howToUse={[
             'Drag and drop an image file (PNG, JPG, WEBP, SVG) into the drop zone, or click to upload.',
@@ -532,7 +532,7 @@ export default function ImageColorPickerPage() {
             {
               question: 'Are my uploaded images saved on your servers?',
               answer:
-                'No. The Color Pickers Image Color Picker executes entirely in your web browser using client-side HTML5 Canvas. Your image files never leave your computer or phone.',
+                'No. The Color Pickers Image Color Picker executes entirely in your web browser using client-side HTML5 Canvas. Images are processed locally in your browser and are not uploaded to our servers.',
             },
             {
               question: 'How does the dominant palette extraction work?',

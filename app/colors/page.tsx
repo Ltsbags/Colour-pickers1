@@ -46,7 +46,7 @@ const COLOR_FAMILIES = [
     desc: 'Calming, trustworthy, and digital-first primaries',
     colors: [
       { name: 'Royal Blue', hex: '4169E1' },
-      { name: 'Tailwind Blue', hex: '3B82F6' },
+      { name: 'Bright Blue', hex: '3B82F6' },
       { name: 'Sky Blue', hex: '0EA5E9' },
       { name: 'Navy Blue', hex: '000080' },
       { name: 'Cobalt', hex: '0047AB' },
