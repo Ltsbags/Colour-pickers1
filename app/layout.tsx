@@ -37,7 +37,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         {adsenseClient && (
           <Script
             id="google-adsense"
-            strategy="lazyOnload"
+            strategy="afterInteractive"
             crossOrigin="anonymous"
             src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${adsenseClient}`}
           />

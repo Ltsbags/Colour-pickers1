@@ -1,31 +1,46 @@
 'use client';
 
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useSyncExternalStore, Component, ErrorInfo, ReactNode } from 'react';
+
+const emptySubscribe = () => () => {};
+function useIsClient() {
+  return useSyncExternalStore(emptySubscribe, () => true, () => false);
+}
 
 /**
- * AdSenseSlot / AdSlot Component
- *
- * Designed for Google AdSense monetization with:
- * 1. Zero Cumulative Layout Shift (CLS) via fixed/reserved dimensions for each slot type
- * 2. Full compliance with Google AdSense Policies (strict "Advertisement" label, high contrast separation)
- * 3. Clear developer placeholders in development / staging
- * 4. Production-ready activation when NEXT_PUBLIC_ADSENSE_CLIENT and slotId are provided
- *
- * ==============================================================================
- * HOW TO INSERT YOUR ACTUAL GOOGLE ADSENSE CODE AFTER APPROVAL:
- * ==============================================================================
- * 1. Define your AdSense Publisher ID in `.env.local` or platform settings:
- *    NEXT_PUBLIC_ADSENSE_CLIENT=ca-pub-XXXXXXXXXXXXXXXX
- *
- * 2. Add your AdSense ad slot IDs to respective page placements:
- *    <AdSenseSlot type="header" slotId="1234567890" />
- *    <AdSenseSlot type="in-content" slotId="0987654321" />
- *    <AdSenseSlot type="sidebar" slotId="1122334455" />
- *    <AdSenseSlot type="footer" slotId="5566778899" />
- *
- * 3. Ensure `/public/ads.txt` is updated with your Publisher ID.
- * ==============================================================================
+ * Error boundary specifically for third-party AdSense units
+ * Prevents ad network script errors from crashing the page
  */
+interface AdErrorBoundaryProps {
+  children: ReactNode;
+  fallback?: ReactNode;
+}
+
+interface AdErrorBoundaryState {
+  hasError: boolean;
+}
+
+class AdErrorBoundary extends Component<AdErrorBoundaryProps, AdErrorBoundaryState> {
+  constructor(props: AdErrorBoundaryProps) {
+    super(props);
+    this.state = { hasError: false };
+  }
+
+  static getDerivedStateFromError(): AdErrorBoundaryState {
+    return { hasError: true };
+  }
+
+  componentDidCatch(error: Error, errorInfo: ErrorInfo) {
+    console.warn('AdSense boundary handled exception:', error, errorInfo);
+  }
+
+  render() {
+    if (this.state.hasError) {
+      return this.props.fallback || null;
+    }
+    return this.props.children;
+  }
+}
 
 export type AdSlotType =
   | 'header'          // 728x90 (Desktop Leaderboard) / 320x50 or 320x100 (Mobile)
@@ -37,7 +52,7 @@ export type AdSlotType =
 export interface AdSenseSlotProps {
   /** The position/type of advertisement slot */
   type?: AdSlotType;
-  /** Google AdSense Ad Slot ID (e.g., '1234567890') */
+  /** Google AdSense Ad Slot ID (e.g., '2312411481') */
   slotId?: string;
   /** Ad layout format */
   format?: 'auto' | 'fluid' | 'rectangle' | 'horizontal' | 'vertical';
@@ -60,7 +75,6 @@ interface SlotDimensionConfig {
 
 const SLOT_CONFIGS: Record<AdSlotType, SlotDimensionConfig> = {
   header: {
-    // 728x90 Leaderboard on desktop, responsive container on mobile
     heightClass: 'min-h-[90px] h-[90px]',
     maxWidthClass: 'max-w-4xl',
     defaultFormat: 'horizontal',
@@ -68,7 +82,6 @@ const SLOT_CONFIGS: Record<AdSlotType, SlotDimensionConfig> = {
     dimensionsText: '728×90 / Responsive Mobile Banner',
   },
   'in-content': {
-    // Standard in-article responsive banner
     heightClass: 'min-h-[140px] sm:min-h-[160px]',
     maxWidthClass: 'max-w-4xl',
     defaultFormat: 'auto',
@@ -76,7 +89,6 @@ const SLOT_CONFIGS: Record<AdSlotType, SlotDimensionConfig> = {
     dimensionsText: 'Responsive Display (In-Article)',
   },
   sidebar: {
-    // 300x250 Rectangle or 300x600 Vertical Skyscraper
     heightClass: 'min-h-[250px] sm:min-h-[280px]',
     maxWidthClass: 'w-full max-w-[340px]',
     defaultFormat: 'rectangle',
@@ -84,7 +96,6 @@ const SLOT_CONFIGS: Record<AdSlotType, SlotDimensionConfig> = {
     dimensionsText: '300×250 / 300×600 Rectangle',
   },
   footer: {
-    // 728x90 Leaderboard above site footer
     heightClass: 'min-h-[90px] h-[90px]',
     maxWidthClass: 'max-w-4xl',
     defaultFormat: 'horizontal',
@@ -92,7 +103,6 @@ const SLOT_CONFIGS: Record<AdSlotType, SlotDimensionConfig> = {
     dimensionsText: '728×90 / Responsive Footer Banner',
   },
   'hero-bottom': {
-    // Responsive wide horizontal banner below primary color tools
     heightClass: 'min-h-[100px] sm:min-h-[120px]',
     maxWidthClass: 'max-w-5xl',
     defaultFormat: 'auto',
@@ -101,7 +111,7 @@ const SLOT_CONFIGS: Record<AdSlotType, SlotDimensionConfig> = {
   },
 };
 
-export function AdSenseSlot({
+function AdSenseSlotInner({
   type = 'in-content',
   slotId = '2312411481',
   format,
@@ -109,26 +119,36 @@ export function AdSenseSlot({
   showLabel = true,
   className = '',
 }: AdSenseSlotProps) {
-  const adRef = useRef<HTMLDivElement>(null);
-  const pushedRef = useRef(false);
+  const containerRef = useRef<HTMLDivElement>(null);
+  const isMounted = useIsClient();
   const client = process.env.NEXT_PUBLIC_ADSENSE_CLIENT || 'ca-pub-9745434299525119';
   const effectiveSlotId = slotId || '2312411481';
   const config = SLOT_CONFIGS[type] || SLOT_CONFIGS['in-content'];
   const adFormat = format || config.defaultFormat;
 
   useEffect(() => {
-    // Trigger Google AdSense push when client and slotId are present
-    if (client && effectiveSlotId && typeof window !== 'undefined' && !pushedRef.current) {
+    if (!isMounted || !client || !effectiveSlotId || typeof window === 'undefined') {
+      return;
+    }
+
+    // Delay push execution slightly to ensure DOM layout is calculated and prevent TagError width=0
+    const timer = setTimeout(() => {
       try {
-        const win = window as unknown as { adsbygoogle?: unknown[] };
-        win.adsbygoogle = win.adsbygoogle || [];
-        win.adsbygoogle.push({});
-        pushedRef.current = true;
+        if (containerRef.current) {
+          const ins = containerRef.current.querySelector('ins.adsbygoogle');
+          if (ins && !ins.getAttribute('data-adsbygoogle-status')) {
+            const win = window as unknown as { adsbygoogle?: unknown[] };
+            win.adsbygoogle = win.adsbygoogle || [];
+            win.adsbygoogle.push({});
+          }
+        }
       } catch (err) {
         console.warn('AdSense notice:', err);
       }
-    }
-  }, [client, effectiveSlotId]);
+    }, 150);
+
+    return () => clearTimeout(timer);
+  }, [isMounted, client, effectiveSlotId]);
 
   return (
     <aside
@@ -147,26 +167,23 @@ export function AdSenseSlot({
         Fixed / min-height styles prevent Cumulative Layout Shift (CLS) when ads load dynamically.
       */}
       <div
-        ref={adRef}
-        className={`w-full ${config.maxWidthClass} ${config.heightClass} rounded-2xl bg-slate-100/70 dark:bg-slate-900/60 border border-dashed border-slate-300/80 dark:border-slate-800 p-3 flex flex-col items-center justify-center text-center transition-colors relative overflow-hidden`}
+        ref={containerRef}
+        suppressHydrationWarning
+        className={`w-full ${config.maxWidthClass} ${config.heightClass} rounded-2xl bg-slate-100/70 dark:bg-slate-900/60 border border-dashed border-slate-300/80 dark:border-slate-800 p-2 flex flex-col items-center justify-center text-center transition-colors relative overflow-hidden`}
       >
-        {client && effectiveSlotId ? (
-          /* ====================================================================
-             LIVE GOOGLE ADSENSE CODE TAG
-             Rendered with Publisher ID and Slot ID
-             ==================================================================== */
-          <ins
-            className="adsbygoogle"
-            style={{ display: 'block', width: '100%', height: '100%' }}
-            data-ad-client={client}
-            data-ad-slot={effectiveSlotId}
-            data-ad-format={adFormat}
-            data-full-width-responsive={fullWidthResponsive ? 'true' : 'false'}
+        {isMounted && client && effectiveSlotId ? (
+          /* 
+            Render ins via dangerouslySetInnerHTML so React's virtual DOM reconciliation 
+            never conflicts with AdSense's injected iframes / DOM modifications.
+          */
+          <div
+            className="w-full h-full flex items-center justify-center"
+            suppressHydrationWarning
+            dangerouslySetInnerHTML={{
+              __html: `<ins class="adsbygoogle" style="display:block;width:100%;height:100%;" data-ad-client="${client}" data-ad-slot="${effectiveSlotId}" data-ad-format="${adFormat}" data-full-width-responsive="${fullWidthResponsive ? 'true' : 'false'}"></ins>`,
+            }}
           />
         ) : (
-          /* ====================================================================
-             DEV / STAGING PLACEHOLDER
-             ==================================================================== */
           <div className="flex flex-col items-center justify-center gap-1 text-slate-400 dark:text-slate-500 py-3 px-4">
             <div className="flex items-center gap-1.5 text-xs font-semibold tracking-wide">
               <span className="w-2 h-2 rounded-full bg-slate-300 dark:bg-slate-700" />
@@ -176,7 +193,7 @@ export function AdSenseSlot({
               {config.dimensionsText}
             </p>
             <span className="text-[10px] text-slate-400/60 italic mt-0.5">
-              Google AdSense Placeholder (CLS Protected)
+              Google AdSense Placement
             </span>
           </div>
         )}
@@ -185,6 +202,15 @@ export function AdSenseSlot({
   );
 }
 
+export function AdSenseSlot(props: AdSenseSlotProps) {
+  return (
+    <AdErrorBoundary>
+      <AdSenseSlotInner {...props} />
+    </AdErrorBoundary>
+  );
+}
+
 // Export aliases for backward compatibility and direct import
 export const AdSlot = AdSenseSlot;
 export default AdSenseSlot;
+
