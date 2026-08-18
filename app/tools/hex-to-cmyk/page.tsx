@@ -9,14 +9,14 @@ import { ToolSeoContent } from '@/components/ToolSeoContent';
 
 export const metadata: Metadata = {
   title: 'HEX to CMYK Converter | Free Online Print Color Code Tool',
-  description: 'Convert HEX color codes to print-ready CMYK (Cyan, Magenta, Yellow, Key/Black) percentages. Free tool with color formulas, print guides, and instant conversion.',
+  description: 'Convert HEX color codes to print-ready CMYK (Cyan, Magenta, Yellow, Key/Black) percentages. Free tool with color formulas, print guides, and real-time conversion.',
   alternates: {
-    canonical: 'https://colorpickers.app/tools/hex-to-cmyk',
+    canonical: 'https://color-pickers.com/tools/hex-to-cmyk',
   },
   openGraph: {
     title: 'HEX to CMYK Color Converter | Web to Print Ready',
     description: 'Transform digital hex colors into four-color process CMYK percentages for physical print production.',
-    url: 'https://colorpickers.app/tools/hex-to-cmyk',
+    url: 'https://color-pickers.com/tools/hex-to-cmyk',
     type: 'website',
   },
 };
@@ -90,7 +90,7 @@ export default function HexToCmykPage() {
             },
             {
               title: 'Real-Time Bidirectional Editing',
-              description: 'Adjusting any ink percentage instantly recomputes the equivalent RGB and HEX preview.',
+              description: 'Adjusting any ink percentage recomputes the equivalent RGB and HEX preview in real time.',
             },
             {
               title: 'No Plugins or Downloads Required',

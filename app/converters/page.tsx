@@ -120,7 +120,7 @@ export default function ConvertersPage() {
               </p>
             </div>
             <span className="text-xs font-mono font-bold text-blue-600 dark:text-blue-400 bg-blue-50 dark:bg-blue-950/60 px-2.5 py-1 rounded-lg border border-blue-200 dark:border-blue-800">
-              100% Client-Side
+              Client-Side Processing
             </span>
           </div>
           <ColorConverterComponent initialHex="3B82F6" />

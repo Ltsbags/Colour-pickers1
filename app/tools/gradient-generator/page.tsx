@@ -269,7 +269,7 @@ export default function GradientGeneratorPage() {
           category="Design & CSS"
           overviewTitle="Mastering CSS Gradients: Linear, Radial & Conic"
           overviewParagraphs={[
-            'CSS gradients allow developers and UI designers to create smooth color transitions between two or more colors without requiring heavy image assets. Because gradients are generated dynamically by the browser rendering engine, they scale infinitely with zero pixelation and negligible file size overhead.',
+            'CSS gradients allow developers and UI designers to create smooth color transitions between two or more colors without requiring heavy image assets. Because gradients are generated dynamically by the browser rendering engine, they scale cleanly across resolutions without bitmap image overhead.',
             'There are three primary types of CSS gradients: Linear gradients (smooth transitions along a straight directional line or angle), Radial gradients (transitions radiating outward from a central focal point or shape), and Conic gradients (transitions swept 360 degrees around a central axis, often used for color wheels and pie charts).',
             'Our interactive CSS Gradient Generator lets you customize multiple color stops, fine-tune degree angles, test real-time background previews, and immediately copy production-ready CSS and Tailwind code.',
           ]}
@@ -297,7 +297,7 @@ export default function GradientGeneratorPage() {
               description: 'Blend up to 5 individual color stops for complex, modern mesh-like aesthetic gradients.',
             },
             {
-              title: '360° Angle Precision Dial',
+              title: '360° Angle Dial',
               description: 'Set exact mathematical degree angles for standard diagonal, vertical, or horizontal gradients.',
             },
             {
@@ -309,7 +309,7 @@ export default function GradientGeneratorPage() {
               description: 'Generate fresh harmonious color combinations with a single click or spacebar trigger.',
             },
             {
-              title: '100% Pure CSS Export',
+              title: 'Clean CSS Export',
               description: 'Generates standard, un-bloated background properties compatible with all modern browsers.',
             },
           ]}
@@ -320,7 +320,7 @@ export default function GradientGeneratorPage() {
             },
             {
               question: 'What is the performance impact of CSS gradients vs background images?',
-              answer: 'CSS gradients require zero HTTP network requests, reducing page load times and Largest Contentful Paint (LCP) metrics compared to JPEG/PNG image assets.',
+              answer: 'CSS gradients avoid additional HTTP image requests, reducing page load times and Largest Contentful Paint (LCP) metrics compared to JPEG/PNG image assets.',
             },
             {
               question: 'Can I animate CSS gradients?',

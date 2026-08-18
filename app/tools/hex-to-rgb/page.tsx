@@ -9,14 +9,14 @@ import { ToolSeoContent } from '@/components/ToolSeoContent';
 
 export const metadata: Metadata = {
   title: 'HEX to RGB Converter | Free Online HEX ⇄ RGB Color Code Tool',
-  description: 'Convert HEX color codes to RGB (Red, Green, Blue) values and vice-versa instantly. Includes CSS rgb() syntax, conversion formula, 8-bit channel breakdowns, and FAQs.',
+  description: 'Convert HEX color codes to RGB (Red, Green, Blue) values and vice-versa with real-time results. Includes CSS rgb() syntax, conversion formula, 8-bit channel breakdowns, and FAQs.',
   alternates: {
-    canonical: 'https://colorpickers.app/tools/hex-to-rgb',
+    canonical: 'https://color-pickers.com/tools/hex-to-rgb',
   },
   openGraph: {
-    title: 'HEX to RGB Color Converter | Instant & Precise',
-    description: 'Convert Hexadecimal web colors to RGB decimal triplets with precision sliders and instant code copy.',
-    url: 'https://colorpickers.app/tools/hex-to-rgb',
+    title: 'HEX to RGB Color Converter | Fast & Accurate',
+    description: 'Convert Hexadecimal web colors to RGB decimal triplets with interactive sliders and live code copy.',
+    url: 'https://color-pickers.com/tools/hex-to-rgb',
     type: 'website',
   },
 };
@@ -39,7 +39,7 @@ export default function HexToRgbPage() {
             HEX to RGB Color Converter
           </h1>
           <p className="mt-2 text-slate-600 dark:text-slate-400 text-sm sm:text-base leading-relaxed">
-            Instantly convert hexadecimal 6-digit or 3-digit web color codes into decimal RGB (Red, Green, Blue) integer values with real-time bidirectional editing and CSS copy.
+            Convert hexadecimal 6-digit or 3-digit web color codes into decimal RGB (Red, Green, Blue) integer values with real-time bidirectional editing and CSS copy.
           </p>
         </div>
 
@@ -60,7 +60,7 @@ export default function HexToRgbPage() {
           overviewParagraphs={[
             'HEX (Hexadecimal) and RGB (Red, Green, Blue) are the two foundational color representation systems used across modern web development, UI/UX software (Figma, Adobe XD), and digital graphics. While both describe the exact same additive color space (sRGB), they structure the underlying color components using different numeric bases.',
             'A standard 6-character HEX code (e.g., #3B82F6) is a base-16 number where each pair of hexadecimal digits maps directly to an 8-bit integer channel between 0 and 255. The first pair represents Red, the second pair represents Green, and the third pair represents Blue. In decimal RGB notation, this is expressed as rgb(59, 130, 246).',
-            'Our interactive converter allows you to switch seamlessly between HEX strings and individual RGB channels, providing instant mathematical translation, live color previewing, and production-ready CSS snippet generation.',
+            'Our interactive converter allows you to switch seamlessly between HEX strings and individual RGB channels, providing accurate mathematical translation, live color previewing, and production-ready CSS snippet generation.',
           ]}
           howToSteps={[
             {

@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect, useRef } from 'react';
 import { useRouter } from 'next/navigation';
-import { Search, X, Palette, ArrowRight, CornerDownLeft } from 'lucide-react';
+import { Search, X, ArrowRight, CornerDownLeft } from 'lucide-react';
 import { searchColorNames, COLOR_NAMES } from '@/lib/color-names';
 import { normalizeHex, isValidHex, hexToRgb, rgbToHex } from '@/lib/color-utils';
 import { addToColorHistory } from '@/lib/color-history';

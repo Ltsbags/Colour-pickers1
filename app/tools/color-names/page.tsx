@@ -61,7 +61,7 @@ export default function ColorNamesDictionaryPage() {
             Color Names Dictionary & Reference
           </h1>
           <p className="mt-2 text-slate-600 dark:text-slate-400 text-sm sm:text-base leading-relaxed">
-            Browse through hundreds of named shades, official CSS / HTML color names, and curated hex swatches with instant search and one-click copy.
+            Browse through hundreds of named shades, official CSS / HTML color names, and curated hex swatches with interactive search and one-click copy.
           </p>
         </div>
 
@@ -195,7 +195,7 @@ export default function ColorNamesDictionaryPage() {
           overviewParagraphs={[
             'Throughout design history, human beings have assigned evocative names to colors—from earthy natural pigments like Ochre and Umber to modern CSS named keywords like Crimson, RebeccaPurple, and AliceBlue.',
             'In web browsers, the W3C CSS specification recognizes 140+ official named colors that can be declared directly in stylesheets without requiring hexadecimal (#) or rgb() numerical codes. In addition, design libraries categorize thousands of distinct shades into memorable color families.',
-            'Our Color Names Dictionary lets you search by name or hex code, filter across color families (Red, Blue, Emerald, Neutral, Pastel), sort alphabetically, and copy verified hexadecimal codes and RGB triplets for instant development.',
+            'Our Color Names Dictionary lets you search by name or hex code, filter across color families (Red, Blue, Emerald, Neutral, Pastel), sort alphabetically, and copy verified hexadecimal codes and RGB triplets for web development.',
           ]}
           howToSteps={[
             {
@@ -221,7 +221,7 @@ export default function ColorNamesDictionaryPage() {
               description: 'Includes official CSS3/CSS4 keyword colors plus high-utility modern UI naming standards.',
             },
             {
-              title: 'Instant Real-Time Search Filter',
+              title: 'Real-Time Search Filter',
               description: 'Fast client-side filtering across color names and hexadecimal values.',
             },
             {
@@ -230,7 +230,7 @@ export default function ColorNamesDictionaryPage() {
             },
             {
               title: 'One-Click Clipboard Copying',
-              description: 'Copy standard #RRGGBB tokens directly to clipboard with instant visual confirmation.',
+              description: 'Copy standard #RRGGBB tokens directly to clipboard with visual confirmation.',
             },
             {
               title: 'Deep Conversion Links',

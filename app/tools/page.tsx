@@ -31,14 +31,14 @@ export default function ToolsDirectoryPage() {
       href: '/tools/converter',
       icon: ArrowRightLeft,
       color: 'bg-blue-500',
-      description: 'Instant multi-matrix conversion between HEX, RGB, HSL, HSV, CMYK, CSS variables, and Tailwind tokens.',
+      description: 'Multi-matrix conversion between HEX, RGB, HSL, HSV, CMYK, CSS variables, and Tailwind tokens.',
     },
     {
       title: 'HEX Color Picker & Eyedropper',
       href: '/tools/color-picker',
       icon: Pipette,
       color: 'bg-rose-500',
-      description: 'Pick colors visually with eyedropper screen support, interactive color wheel, and instant copy.',
+      description: 'Pick colors visually with eyedropper screen support, interactive color wheel, and one-click copy.',
     },
     {
       title: 'Image Color Picker',
@@ -52,7 +52,7 @@ export default function ToolsDirectoryPage() {
       href: '/tools/hex-to-rgb',
       icon: Sliders,
       color: 'bg-indigo-500',
-      description: 'Convert HEX color codes to Red, Green, Blue component channels with precision sliders.',
+      description: 'Convert HEX color codes to Red, Green, Blue component channels with interactive sliders.',
     },
     {
       title: 'HSL Converter',
@@ -80,7 +80,7 @@ export default function ToolsDirectoryPage() {
       href: '/tools/gradient-generator',
       icon: Sparkles,
       color: 'bg-purple-500',
-      description: 'Design multi-stop linear, radial, and conic CSS gradients with instant CSS & Tailwind code output.',
+      description: 'Design multi-stop linear, radial, and conic CSS gradients with CSS & Tailwind code output.',
     },
     {
       title: 'Color Palette Generator',
@@ -136,7 +136,7 @@ export default function ToolsDirectoryPage() {
       href: '/tools/random-color',
       icon: Shuffle,
       color: 'bg-slate-700',
-      description: 'Discover unexpected color inspirations instantly with one-click random generation and history logging.',
+      description: 'Discover unexpected color inspirations with one-click random generation and history logging.',
     },
   ];
 

@@ -8,7 +8,7 @@ import { ColorConverterComponent } from '@/components/ColorConverterComponent';
 
 export const metadata: Metadata = {
   title: 'All-in-One Color Converter | Color Pickers',
-  description: 'Convert color codes between HEX, RGB, HSL, HSV, and CMYK formats in real-time. Copy CSS code snippets and Tailwind utility classes instantly.',
+  description: 'Convert color codes between HEX, RGB, HSL, HSV, and CMYK formats in real-time. Copy CSS code snippets and Tailwind utility classes with real-time results.',
 };
 
 export default function ConverterPage() {
@@ -29,7 +29,7 @@ export default function ConverterPage() {
             All-in-One Color Converter
           </h1>
           <p className="mt-2 text-slate-600 dark:text-slate-400 text-sm">
-            Convert HEX, RGB, HSL, HSV, and CMYK colors with instant component sliders and copyable code snippets.
+            Convert HEX, RGB, HSL, HSV, and CMYK colors with interactive component sliders and copyable code snippets.
           </p>
         </div>
 

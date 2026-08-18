@@ -59,7 +59,7 @@ export default function HexToHsvPage() {
           overviewParagraphs={[
             'The HSV (Hue, Saturation, Value) model, also frequently referred to as HSB (Hue, Saturation, Brightness), is a cylindrical representation of RGB color space specifically formulated to mimic how artists mix paints and adjust pigments in physical mediums.',
             'While developers frequently use HEX and RGB in markup, digital artists and graphic designers in Photoshop, Blender, Procreate, and Figma rely on HSV because the "Value" (or Brightness) channel corresponds directly to the amount of black pigment mixed into the pure hue.',
-            'Our online tool translates any 6-character or 3-character HEX code into exact HSV coordinates, allowing you to manipulate hue degrees and saturation percentages with instant bidirectional updates.',
+            'Our online tool translates any 6-character or 3-character HEX code into exact HSV coordinates, allowing you to manipulate hue degrees and saturation percentages with real-time bidirectional updates.',
           ]}
           howToSteps={[
             {

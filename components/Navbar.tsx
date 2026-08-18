@@ -4,19 +4,10 @@ import React, { useState } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import {
-  Palette,
   Search,
-  Sliders,
-  Sparkles,
-  Layers,
-  Pipette,
   Menu,
   X,
   ChevronDown,
-  ArrowRightLeft,
-  BookOpen,
-  Image as ImageIcon,
-  ShieldCheck,
 } from 'lucide-react';
 import { ThemeToggle } from './ThemeToggle';
 import { SearchModal } from './SearchModal';
@@ -50,7 +41,7 @@ export function Navbar() {
   ];
 
   const convertersList = [
-    { href: '/tools/converter', label: 'Universal Converter', desc: 'Instant matrix for all formats' },
+    { href: '/tools/converter', label: 'Universal Converter', desc: 'Matrix for all color formats' },
     { href: '/tools/hex-to-rgb', label: 'HEX to RGB', desc: '0–255 integer light channels' },
     { href: '/tools/hex-to-hsl', label: 'HEX to HSL', desc: 'Hue, Saturation, Lightness values' },
     { href: '/tools/hex-to-hsv', label: 'HEX to HSV', desc: 'Figma & Photoshop color model' },

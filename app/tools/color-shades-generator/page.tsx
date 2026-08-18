@@ -341,7 +341,7 @@ export default function ColorShadesGeneratorPage() {
               description: 'Easily grab specific hex codes directly to your clipboard for rapid development.',
             },
             {
-              title: 'Instant Deep-Linking',
+              title: 'Direct Deep-Linking',
               description: 'Each generated swatch links directly to its full contrast and conversion profile page.',
             },
           ]}

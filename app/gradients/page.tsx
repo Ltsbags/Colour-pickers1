@@ -43,7 +43,7 @@ export default function GradientsHubPage() {
             CSS Gradients & Backgrounds
           </h1>
           <p className="text-slate-600 dark:text-slate-400 text-sm sm:text-base leading-relaxed">
-            Beautiful multi-color gradient presets for modern web backgrounds, hero sections, and card accents. Copy CSS background properties instantly or customize stops in our live editor.
+            Beautiful multi-color gradient presets for modern web backgrounds, hero sections, and card accents. Copy CSS background properties or customize stops in our live editor.
           </p>
 
           <div className="flex justify-center gap-3 pt-2">

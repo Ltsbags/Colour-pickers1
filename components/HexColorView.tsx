@@ -187,7 +187,7 @@ export function HexColorView({
                   Color Space Coordinates
                 </h2>
                 <p className="text-xs text-slate-500 dark:text-slate-400">
-                  Instant copyable codes for development, CSS styling, and print
+                  Copyable codes for development, CSS styling, and print
                 </p>
               </div>
 

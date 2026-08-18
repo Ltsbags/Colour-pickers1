@@ -195,7 +195,7 @@ export default function ColorPickerPage() {
           overviewTitle="How Does the Online Screen Eyedropper & Color Picker Work?"
           overviewParagraphs={[
             'Our online color picker combines native browser Eyedropper API technology with full-spectrum RGB/HSL color synthesis. Instead of taking a screenshot, opening an external graphics editor, and magnifying pixels, you can sample any pixel directly from your desktop screen, web pages, or photos with a single click.',
-            'Once sampled, the color is instantly analyzed across all digital color models (Hexadecimal, RGB, HSL, HSV, CMYK) and matched with our comprehensive dictionary of named color pigments.',
+            'Once sampled, the color is analyzed across digital color models (Hexadecimal, RGB, HSL, HSV, CMYK) and matched with our comprehensive dictionary of named color pigments.',
             'Whether you are building a design system in CSS, inspecting website palettes, or selecting harmonious accents, this tool provides real-time conversions, WCAG accessibility ratios, and one-click clipboard copying.',
           ]}
           howToSteps={[
@@ -209,7 +209,7 @@ export default function ColorPickerPage() {
             },
             {
               step: 'View Converted Values',
-              description: 'Review instant mathematical representations in HEX, RGB, HSL, HSV, and CMYK format.',
+              description: 'Review mathematical representations in HEX, RGB, HSL, HSV, and CMYK format.',
             },
             {
               step: 'Copy or Explore Further',
@@ -222,7 +222,7 @@ export default function ColorPickerPage() {
               description: 'Sample pixel-perfect colors from any window, document, or desktop app in supported browsers.',
             },
             {
-              title: 'Instant Multi-Model Sync',
+              title: 'Multi-Model Sync',
               description: 'Simultaneously generates HEX, RGB, HSL, and CMYK values without manual conversion.',
             },
             {

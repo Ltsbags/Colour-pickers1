@@ -42,7 +42,7 @@ export default function RandomColorPage() {
             Random Color Generator
           </h1>
           <p className="mt-2 text-slate-600 dark:text-slate-400 text-sm">
-            Discover unique color inspiration instantly with a single click.
+            Discover unique color inspiration with a single click.
           </p>
         </div>
 

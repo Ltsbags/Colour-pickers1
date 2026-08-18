@@ -72,7 +72,7 @@ export default function HexToHslPage() {
             },
             {
               step: 'Inspect Live Color Changes',
-              description: 'Observe the instantaneous feedback in the interactive canvas and complementary format values.',
+              description: 'Observe real-time feedback in the interactive canvas and complementary format values.',
             },
             {
               step: 'Copy CSS hsl() Snippet',

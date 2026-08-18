@@ -96,7 +96,7 @@ const FAQ_SECTIONS = [
       },
       {
         q: 'Do you offer keyboard shortcuts for fast palette exploration?',
-        a: 'Yes! On our Palette Generator (/tools/palette-generator), you can tap the Spacebar to generate randomized harmonious palettes instantly, click any swatch to lock individual colors, and use Command/Control + K to open the global color search anywhere on the site.',
+        a: 'Yes! On our Palette Generator (/tools/palette-generator), you can tap the Spacebar to generate randomized harmonious palettes in real time, click any swatch to lock individual colors, and use Command/Control + K to open the global color search anywhere on the site.',
       },
     ],
   },

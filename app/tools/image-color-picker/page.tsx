@@ -519,7 +519,7 @@ export default function ImageColorPickerPage() {
           features={[
             'Sample exact pixel colors from any uploaded photo, screenshot, or graphic with a crosshair cursor.',
             'Automatic dominant color palette extraction powered by HTML5 Canvas image quantization.',
-            'Instant calculation of HEX, RGB, HSL, HSV, CMYK values, and closest named color match.',
+            'Calculation of HEX, RGB, HSL, HSV, CMYK values, and closest named color match in real time.',
             'Images are processed locally in your browser and are not uploaded to our servers.',
           ]}
           howToUse={[

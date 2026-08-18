@@ -385,7 +385,7 @@ export default function ContrastCheckerPage() {
             },
             {
               title: 'Quick Swap & Color Inversion',
-              description: 'Instantly swap foreground and background colors with a single click to test dark mode parity.',
+              description: 'Swap foreground and background colors with a single click to test dark mode parity.',
             },
             {
               title: 'Interactive Typography Sandbox',

@@ -240,12 +240,12 @@ export default function PaletteGeneratorPage() {
           overviewParagraphs={[
             'A cohesive color palette is the cornerstone of any impactful brand identity, web design, or mobile application interface. Good color theory relies on establishing a primary dominant color, balanced secondary supporting hues, neutral background shades, and purposeful contrast accents.',
             'Our Color Palette Generator uses algorithmic color harmony rules to help you discover beautiful 5-color combinations effortlessly. With intuitive spacebar randomization, you can explore hundreds of curated concepts and lock individual colors in place as your theme develops.',
-            'Every color is paired with verified color names, hexadecimal tokens, and instant links to WCAG contrast ratios to ensure your designs look stunning and remain fully accessible for all users.',
+            'Every color is paired with verified color names, hexadecimal tokens, and direct links to WCAG contrast ratios to ensure your designs look stunning and remain fully accessible for all users.',
           ]}
           howToSteps={[
             {
               step: 'Press Spacebar to Generate',
-              description: 'Hit the Spacebar or tap "Generate" to randomize full 5-color combinations instantly.',
+              description: 'Hit the Spacebar or tap "Generate" to randomize full 5-color combinations in real time.',
             },
             {
               step: 'Lock Your Favorite Shades',
@@ -262,7 +262,7 @@ export default function PaletteGeneratorPage() {
           ]}
           features={[
             {
-              title: 'Spacebar Instant Randomization',
+              title: 'Spacebar Randomization',
               description: 'Rapidly cycle through aesthetic palettes without page refreshes.',
             },
             {

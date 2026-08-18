@@ -274,7 +274,7 @@ export default function HomePage() {
           <div className="flex items-center justify-between border-b border-slate-200 dark:border-slate-800 pb-3">
             <div>
               <h2 className="text-xl sm:text-2xl font-bold text-slate-900 dark:text-white tracking-tight">
-                Instant Color Space Converter
+                Universal Color Space Converter
               </h2>
               <p className="text-xs text-slate-500 dark:text-slate-400">
                 Transform between HEX, RGB, HSL, HSV, CMYK, CSS custom properties, and Tailwind tokens
@@ -529,7 +529,7 @@ export default function HomePage() {
                 What is a Color Picker?
               </h3>
               <p className="text-xs leading-relaxed">
-                A digital color picker is a graphical tool that lets users select, adjust, and inspect color values. It translates the physics of screen-emitted light into exact numerical codes like HEX, RGB, and HSL. Our tool executes color math locally in your browser using TypeScript.
+                A digital color picker is a graphical tool that lets users select, adjust, and inspect color values. It translates the physics of screen-emitted light into exact numerical codes like HEX, RGB, and HSL. Color calculations are performed locally in your browser using TypeScript and browser-based processing.
               </p>
             </div>
 
