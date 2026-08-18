@@ -110,16 +110,19 @@ export function AdSenseSlot({
   className = '',
 }: AdSenseSlotProps) {
   const adRef = useRef<HTMLDivElement>(null);
+  const pushedRef = useRef(false);
   const client = process.env.NEXT_PUBLIC_ADSENSE_CLIENT || 'ca-pub-9745434299525119';
   const config = SLOT_CONFIGS[type] || SLOT_CONFIGS['in-content'];
   const adFormat = format || config.defaultFormat;
 
   useEffect(() => {
-    // Trigger Google AdSense script push only when valid client and slot are active
-    if (client && typeof window !== 'undefined') {
+    // Only trigger Google AdSense push when BOTH client AND slotId are provided and rendered
+    if (client && slotId && typeof window !== 'undefined' && !pushedRef.current) {
       try {
-        const adsbygoogle = (window as unknown as { adsbygoogle?: unknown[] }).adsbygoogle || [];
-        adsbygoogle.push({});
+        const win = window as unknown as { adsbygoogle?: unknown[] };
+        win.adsbygoogle = win.adsbygoogle || [];
+        win.adsbygoogle.push({});
+        pushedRef.current = true;
       } catch (err) {
         console.warn('AdSense notice:', err);
       }

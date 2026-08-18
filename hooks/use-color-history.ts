@@ -1,5 +1,7 @@
 'use client';
 
+'use client';
+
 import { useSyncExternalStore, useCallback } from 'react';
 import {
   ColorHistoryItem,
