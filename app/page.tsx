@@ -167,7 +167,7 @@ export default function HomePage() {
 
       <main className="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-12">
         {/* AdSlot Header */}
-        <AdSlot type="header" />
+        <AdSlot type="header" slotId="2312411481" />
 
         {/* Hero Section */}
         <section className="relative pt-4 pb-8 lg:py-12">
@@ -266,8 +266,8 @@ export default function HomePage() {
         {/* Recent History Section */}
         <RecentHistorySection />
 
-        {/* Hero Bottom Advertisement */}
-        <AdSlot type="hero-bottom" />
+        {/* Hero Bottom Advertisement (Before Tools / Post) */}
+        <AdSlot type="hero-bottom" slotId="2312411481" />
 
         {/* Live Color Converter Widget */}
         <section className="bg-white dark:bg-slate-900 border border-slate-200/80 dark:border-slate-800 rounded-3xl p-6 sm:p-8 shadow-xs space-y-4">
@@ -402,7 +402,7 @@ export default function HomePage() {
         </section>
 
         {/* AdSlot In Content */}
-        <AdSlot type="in-content" />
+        <AdSlot type="in-content" slotId="2312411481" />
 
         {/* Trending Colors */}
         <section className="space-y-6">
@@ -633,7 +633,7 @@ export default function HomePage() {
         </section>
 
         {/* AdSlot Footer */}
-        <AdSlot type="footer" />
+        <AdSlot type="footer" slotId="2312411481" />
       </main>
 
       <Footer />

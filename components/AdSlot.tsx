@@ -103,7 +103,7 @@ const SLOT_CONFIGS: Record<AdSlotType, SlotDimensionConfig> = {
 
 export function AdSenseSlot({
   type = 'in-content',
-  slotId,
+  slotId = '2312411481',
   format,
   fullWidthResponsive = true,
   showLabel = true,
@@ -112,12 +112,13 @@ export function AdSenseSlot({
   const adRef = useRef<HTMLDivElement>(null);
   const pushedRef = useRef(false);
   const client = process.env.NEXT_PUBLIC_ADSENSE_CLIENT || 'ca-pub-9745434299525119';
+  const effectiveSlotId = slotId || '2312411481';
   const config = SLOT_CONFIGS[type] || SLOT_CONFIGS['in-content'];
   const adFormat = format || config.defaultFormat;
 
   useEffect(() => {
-    // Only trigger Google AdSense push when BOTH client AND slotId are provided and rendered
-    if (client && slotId && typeof window !== 'undefined' && !pushedRef.current) {
+    // Trigger Google AdSense push when client and slotId are present
+    if (client && effectiveSlotId && typeof window !== 'undefined' && !pushedRef.current) {
       try {
         const win = window as unknown as { adsbygoogle?: unknown[] };
         win.adsbygoogle = win.adsbygoogle || [];
@@ -127,7 +128,7 @@ export function AdSenseSlot({
         console.warn('AdSense notice:', err);
       }
     }
-  }, [client, slotId]);
+  }, [client, effectiveSlotId]);
 
   return (
     <aside
@@ -149,23 +150,22 @@ export function AdSenseSlot({
         ref={adRef}
         className={`w-full ${config.maxWidthClass} ${config.heightClass} rounded-2xl bg-slate-100/70 dark:bg-slate-900/60 border border-dashed border-slate-300/80 dark:border-slate-800 p-3 flex flex-col items-center justify-center text-center transition-colors relative overflow-hidden`}
       >
-        {client && slotId ? (
+        {client && effectiveSlotId ? (
           /* ====================================================================
              LIVE GOOGLE ADSENSE CODE TAG
-             Rendered when NEXT_PUBLIC_ADSENSE_CLIENT and slotId are present
+             Rendered with Publisher ID and Slot ID
              ==================================================================== */
           <ins
             className="adsbygoogle"
             style={{ display: 'block', width: '100%', height: '100%' }}
             data-ad-client={client}
-            data-ad-slot={slotId}
+            data-ad-slot={effectiveSlotId}
             data-ad-format={adFormat}
             data-full-width-responsive={fullWidthResponsive ? 'true' : 'false'}
           />
         ) : (
           /* ====================================================================
              DEV / STAGING PLACEHOLDER
-             Clean, responsive placeholder container preserving CLS layout space
              ==================================================================== */
           <div className="flex flex-col items-center justify-center gap-1 text-slate-400 dark:text-slate-500 py-3 px-4">
             <div className="flex items-center gap-1.5 text-xs font-semibold tracking-wide">
@@ -175,15 +175,9 @@ export function AdSenseSlot({
             <p className="text-[11px] text-slate-400/80 dark:text-slate-500 max-w-sm">
               {config.dimensionsText}
             </p>
-            {slotId ? (
-              <span className="font-mono text-[9px] text-slate-400 bg-slate-200/60 dark:bg-slate-800/80 px-2 py-0.5 rounded mt-0.5">
-                Slot ID: {slotId}
-              </span>
-            ) : (
-              <span className="text-[10px] text-slate-400/60 italic mt-0.5">
-                Google AdSense Placeholder (CLS Protected)
-              </span>
-            )}
+            <span className="text-[10px] text-slate-400/60 italic mt-0.5">
+              Google AdSense Placeholder (CLS Protected)
+            </span>
           </div>
         )}
       </div>
