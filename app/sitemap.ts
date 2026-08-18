@@ -1,11 +1,18 @@
 import { MetadataRoute } from 'next';
-import { POPULAR_COLORS } from '@/lib/popular-colors';
+import { POPULAR_COLORS, TRENDING_COLORS, PASTEL_COLORS } from '@/lib/popular-colors';
+import { GUIDES } from '@/lib/guides-data';
+import { COLOR_NAMES } from '@/lib/color-names';
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = process.env.NEXT_PUBLIC_APP_URL || 'https://color-pickers.com';
+  const baseUrl = 'https://color-pickers.com';
 
   const staticRoutes = [
     '',
+    '/colors',
+    '/converters',
+    '/palettes',
+    '/gradients',
+    '/guides',
     '/tools',
     '/tools/converter',
     '/tools/hex-to-rgb',
@@ -15,7 +22,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '/tools/gradient-generator',
     '/tools/palette-generator',
     '/tools/color-picker',
+    '/tools/image-color-picker',
+    '/tools/color-mixer',
+    '/tools/color-harmonies',
     '/tools/color-contrast-checker',
+    '/tools/shades-generator',
     '/tools/color-shades-generator',
     '/tools/color-names',
     '/tools/css-converter',
@@ -28,15 +39,32 @@ export default function sitemap(): MetadataRoute.Sitemap {
     url: `${baseUrl}${route}`,
     lastModified: new Date().toISOString(),
     changeFrequency: 'weekly' as const,
-    priority: route === '' ? 1.0 : 0.8,
+    priority: route === '' ? 1.0 : route.startsWith('/guides') || route.startsWith('/tools') ? 0.9 : 0.8,
   }));
 
-  const colorRoutes = POPULAR_COLORS.map(c => ({
-    url: `${baseUrl}/hex/${c.hex}`,
+  const guideRoutes = GUIDES.map(guide => ({
+    url: `${baseUrl}/guides/${guide.slug}`,
+    lastModified: new Date().toISOString(),
+    changeFrequency: 'monthly' as const,
+    priority: 0.85,
+  }));
+
+  // Combine unique hex colors
+  const allHexes = Array.from(
+    new Set([
+      ...POPULAR_COLORS.map(c => c.hex.toLowerCase()),
+      ...TRENDING_COLORS.map(c => c.hex.toLowerCase()),
+      ...PASTEL_COLORS.map(c => c.hex.toLowerCase()),
+      ...COLOR_NAMES.map(c => c.hex.toLowerCase()),
+    ])
+  );
+
+  const colorRoutes = allHexes.map(hex => ({
+    url: `${baseUrl}/hex/${hex}`,
     lastModified: new Date().toISOString(),
     changeFrequency: 'monthly' as const,
     priority: 0.7,
   }));
 
-  return [...staticRoutes, ...colorRoutes];
+  return [...staticRoutes, ...guideRoutes, ...colorRoutes];
 }

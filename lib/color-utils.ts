@@ -74,12 +74,16 @@ export function hexToRgb(hexInput: string): RGB {
 }
 
 /**
- * RGB to HEX
+ * RGB to HEX (accepts either RGB object or r, g, b numbers)
  */
-export function rgbToHex({ r, g, b }: RGB): string {
+export function rgbToHex(inputOrR: RGB | number, g?: number, b?: number): string {
   const clamp = (v: number) => Math.max(0, Math.min(255, Math.round(v)));
   const toHex = (v: number) => clamp(v).toString(16).padStart(2, '0').toUpperCase();
-  return `${toHex(r)}${toHex(g)}${toHex(b)}`;
+
+  if (typeof inputOrR === 'object' && inputOrR !== null) {
+    return `${toHex(inputOrR.r)}${toHex(inputOrR.g)}${toHex(inputOrR.b)}`;
+  }
+  return `${toHex(inputOrR)}${toHex(g ?? 0)}${toHex(b ?? 0)}`;
 }
 
 /**
