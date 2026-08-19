@@ -11,6 +11,12 @@ import {
   clearColorHistory as clearColorHelper,
 } from '@/lib/color-history';
 
+const emptySubscribe = () => () => {};
+
+function useIsClient() {
+  return useSyncExternalStore(emptySubscribe, () => true, () => false);
+}
+
 function subscribe(callback: () => void) {
   if (typeof window === 'undefined') return () => {};
 
@@ -37,6 +43,7 @@ function getServerSnapshot(): ColorHistoryItem[] {
 }
 
 export function useColorHistory() {
+  const isClient = useIsClient();
   const history = useSyncExternalStore(subscribe, getSnapshot, getServerSnapshot);
 
   const addColor = useCallback((hex: string, name?: string) => {
@@ -52,10 +59,11 @@ export function useColorHistory() {
   }, []);
 
   return {
-    history,
-    isLoaded: true,
+    history: isClient ? history : DEFAULT_FALLBACK_ITEMS,
+    isLoaded: isClient,
     addColor,
     removeColor,
     clearHistory,
   };
 }
+

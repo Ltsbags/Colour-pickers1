@@ -25,6 +25,31 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                   document.documentElement.classList.remove('dark');
                 }
               } catch (e) {}
+
+              // Guard against unhandled third-party script errors (AdSense TagError, ad blockers, etc.)
+              if (typeof window !== 'undefined') {
+                window.addEventListener('error', function(e) {
+                  if (e && e.message && (
+                    e.message.indexOf('adsbygoogle') !== -1 ||
+                    e.message.indexOf('TagError') !== -1 ||
+                    e.message.indexOf('pagead') !== -1 ||
+                    e.filename && e.filename.indexOf('googlesyndication') !== -1
+                  )) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    return true;
+                  }
+                }, true);
+                window.addEventListener('unhandledrejection', function(e) {
+                  if (e && e.reason && (
+                    String(e.reason).indexOf('adsbygoogle') !== -1 ||
+                    String(e.reason).indexOf('TagError') !== -1 ||
+                    String(e.reason).indexOf('pagead') !== -1
+                  )) {
+                    e.preventDefault();
+                  }
+                });
+              }
             `,
           }}
         />

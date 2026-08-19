@@ -136,16 +136,21 @@ function AdSenseSlotInner({
       try {
         if (containerRef.current) {
           const ins = containerRef.current.querySelector('ins.adsbygoogle');
-          if (ins && !ins.getAttribute('data-adsbygoogle-status')) {
+          if (ins && !ins.getAttribute('data-adsbygoogle-status') && !ins.getAttribute('data-ad-status')) {
+            ins.setAttribute('data-adsbygoogle-status', 'pending');
             const win = window as unknown as { adsbygoogle?: unknown[] };
             win.adsbygoogle = win.adsbygoogle || [];
-            win.adsbygoogle.push({});
+            try {
+              win.adsbygoogle.push({});
+            } catch (pushErr) {
+              console.warn('AdSense push error suppressed:', pushErr);
+            }
           }
         }
       } catch (err) {
-        console.warn('AdSense notice:', err);
+        console.warn('AdSense container notice:', err);
       }
-    }, 150);
+    }, 250);
 
     return () => clearTimeout(timer);
   }, [isMounted, client, effectiveSlotId]);
