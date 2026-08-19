@@ -27,6 +27,18 @@ export interface CMYK {
   k: number; // 0 - 100
 }
 
+export interface OKLab {
+  l: number; // 0 - 1
+  a: number; // -0.4 - +0.4
+  b: number; // -0.4 - +0.4
+}
+
+export interface OKLCH {
+  l: number; // 0 - 1 (or 0% - 100%)
+  c: number; // 0 - 0.4
+  h: number; // 0 - 360
+}
+
 export interface ColorData {
   hex: string; // e.g. "#FF5733"
   cleanHex: string; // "FF5733"
@@ -34,6 +46,8 @@ export interface ColorData {
   hsl: HSL;
   hsv: HSV;
   cmyk: CMYK;
+  oklab: OKLab;
+  oklch: OKLCH;
   name: string;
   isLight: boolean;
 }
@@ -459,3 +473,118 @@ export function getRandomHex(): string {
   }
   return color;
 }
+
+/**
+ * Converts sRGB channel [0, 255] to Linear sRGB [0, 1]
+ */
+function srgbToLinear(c: number): number {
+  const v = c / 255;
+  return v <= 0.04045 ? v / 12.92 : Math.pow((v + 0.055) / 1.055, 2.4);
+}
+
+/**
+ * Converts Linear sRGB [0, 1] to standard sRGB channel [0, 255]
+ */
+function linearToSrgb(v: number): number {
+  const clamped = Math.max(0, Math.min(1, v));
+  const s = clamped <= 0.0031308 ? 12.92 * clamped : 1.055 * Math.pow(clamped, 1 / 2.4) - 0.055;
+  return Math.round(Math.max(0, Math.min(255, s * 255)));
+}
+
+/**
+ * RGB to OKLab (Perceptually Uniform Color Space)
+ */
+export function rgbToOklab({ r, g, b }: RGB): OKLab {
+  const rLin = srgbToLinear(r);
+  const gLin = srgbToLinear(g);
+  const bLin = srgbToLinear(b);
+
+  const l = Math.cbrt(0.4122214708 * rLin + 0.5363325363 * gLin + 0.0514459929 * bLin);
+  const m = Math.cbrt(0.2119034982 * rLin + 0.6806995451 * gLin + 0.1073969566 * bLin);
+  const s = Math.cbrt(0.0883024619 * rLin + 0.2817188376 * gLin + 0.6299787005 * bLin);
+
+  const L = 0.2104542553 * l + 0.7936177850 * m - 0.0040720468 * s;
+  const a = 1.9779984951 * l - 2.4285922050 * m + 0.4505937099 * s;
+  const bVal = 0.0259040371 * l + 0.7827717662 * m - 0.8086757660 * s;
+
+  return {
+    l: Math.round(L * 1000) / 1000,
+    a: Math.round(a * 1000) / 1000,
+    b: Math.round(bVal * 1000) / 1000,
+  };
+}
+
+/**
+ * OKLab to RGB
+ */
+export function oklabToRgb({ l: L, a, b }: OKLab): RGB {
+  const l = Math.pow(L + 0.3963377774 * a + 0.2158037573 * b, 3);
+  const m = Math.pow(L - 0.1055613458 * a - 0.0638541728 * b, 3);
+  const s = Math.pow(L - 0.0894841775 * a - 1.2914855480 * b, 3);
+
+  const rLin = +4.0767416621 * l - 3.3077115913 * m + 0.2309699292 * s;
+  const gLin = -1.2684380046 * l + 2.6097574011 * m - 0.3413193965 * s;
+  const bLin = -0.0041960863 * l - 0.7034186147 * m + 1.7076147010 * s;
+
+  return {
+    r: linearToSrgb(rLin),
+    g: linearToSrgb(gLin),
+    b: linearToSrgb(bLin),
+  };
+}
+
+/**
+ * RGB to OKLCH (Lightness, Chroma, Hue)
+ */
+export function rgbToOklch(rgb: RGB): OKLCH {
+  const lab = rgbToOklab(rgb);
+  const c = Math.sqrt(lab.a * lab.a + lab.b * lab.b);
+  let h = (Math.atan2(lab.b, lab.a) * 180) / Math.PI;
+  if (h < 0) h += 360;
+  if (c < 0.0001) h = 0;
+
+  return {
+    l: Math.round(lab.l * 1000) / 1000,
+    c: Math.round(c * 1000) / 1000,
+    h: Math.round(h * 10) / 10,
+  };
+}
+
+/**
+ * OKLCH to RGB
+ */
+export function oklchToRgb({ l, c, h }: OKLCH): RGB {
+  const hRad = (h * Math.PI) / 180;
+  const a = c * Math.cos(hRad);
+  const b = c * Math.sin(hRad);
+  return oklabToRgb({ l, a, b });
+}
+
+/**
+ * HEX to OKLCH
+ */
+export function hexToOklch(hex: string): OKLCH {
+  return rgbToOklch(hexToRgb(hex));
+}
+
+/**
+ * OKLCH to HEX
+ */
+export function oklchToHex(oklch: OKLCH): string {
+  return rgbToHex(oklchToRgb(oklch));
+}
+
+/**
+ * HEX to OKLab
+ */
+export function hexToOklab(hex: string): OKLab {
+  return rgbToOklab(hexToRgb(hex));
+}
+
+/**
+ * OKLab to HEX
+ */
+export function oklabToHex(oklab: OKLab): string {
+  return rgbToHex(oklabToRgb(oklab));
+}
+

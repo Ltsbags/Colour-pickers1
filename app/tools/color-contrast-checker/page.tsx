@@ -5,8 +5,13 @@ import { Navbar } from '@/components/Navbar';
 import { Footer } from '@/components/Footer';
 import { AdSlot } from '@/components/AdSlot';
 import { Breadcrumbs } from '@/components/Breadcrumbs';
+import { CopyButton } from '@/components/CopyButton';
 import {
   hexToRgb,
+  rgbToHex,
+  rgbToHsl,
+  hslToRgb,
+  getLuminance,
   normalizeHex,
   getContrastRatio,
   isLightColor,
@@ -16,8 +21,42 @@ import {
   XCircle,
   Shuffle,
   Type,
+  Sparkles,
+  ArrowRight,
+  ShieldCheck,
+  Info,
 } from 'lucide-react';
 import { ToolSeoContent } from '@/components/ToolSeoContent';
+
+function getSuggestedAccessibleColor(fg: string, bg: string, targetRatio: number = 4.5): string {
+  const bgRgb = hexToRgb(bg);
+  const fgRgb = hexToRgb(fg);
+  const currentRatio = getContrastRatio(fgRgb, bgRgb);
+  if (currentRatio >= targetRatio) return fg;
+
+  const bgLum = getLuminance(bgRgb);
+  const isBgLight = bgLum > 0.5;
+
+  const fgHsl = rgbToHsl(fgRgb);
+
+  if (isBgLight) {
+    for (let l = fgHsl.l; l >= 0; l -= 1) {
+      const testRgb = hslToRgb({ ...fgHsl, l });
+      if (getContrastRatio(testRgb, bgRgb) >= targetRatio) {
+        return rgbToHex(testRgb);
+      }
+    }
+    return '000000';
+  } else {
+    for (let l = fgHsl.l; l <= 100; l += 1) {
+      const testRgb = hslToRgb({ ...fgHsl, l });
+      if (getContrastRatio(testRgb, bgRgb) >= targetRatio) {
+        return rgbToHex(testRgb);
+      }
+    }
+    return 'FFFFFF';
+  }
+}
 
 export default function ContrastCheckerPage() {
   const [fgHex, setFgHex] = useState('0F172A');
@@ -37,7 +76,15 @@ export default function ContrastCheckerPage() {
     largeAA: ratio >= 3.0,
     normalAAA: ratio >= 7.0,
     largeAAA: ratio >= 4.5,
+    uiComponents: ratio >= 3.0,
   };
+
+  const suggestedAA = !compliance.normalAA
+    ? getSuggestedAccessibleColor(cleanFg, cleanBg, 4.5)
+    : null;
+  const suggestedAAA = !compliance.normalAAA
+    ? getSuggestedAccessibleColor(cleanFg, cleanBg, 7.0)
+    : null;
 
   const swapColors = () => {
     setFgHex(cleanBg);
@@ -50,7 +97,7 @@ export default function ContrastCheckerPage() {
     { name: 'Brand Indigo on Slate', fg: '4F46E5', bg: 'F8FAFC' },
     { name: 'Amber on Dark Navy', fg: 'F59E0B', bg: '0F172A' },
     { name: 'Emerald on Mint Soft', fg: '065F46', bg: 'D1FAE5' },
-    { name: 'Low Contrast Warning', fg: '94A3B8', bg: 'FFFFFF' },
+    { name: 'Low Contrast Sample', fg: '94A3B8', bg: 'FFFFFF' },
   ];
 
   const handleRandomFg = () => {
@@ -132,6 +179,7 @@ export default function ContrastCheckerPage() {
                         maxLength={7}
                       />
                     </div>
+                    <CopyButton textToCopy={`#${cleanFg}`} label="Copy" variant="ghost" size="sm" />
                   </div>
                 </div>
 
@@ -164,9 +212,58 @@ export default function ContrastCheckerPage() {
                         maxLength={7}
                       />
                     </div>
+                    <CopyButton textToCopy={`#${cleanBg}`} label="Copy" variant="ghost" size="sm" />
                   </div>
                 </div>
               </div>
+
+              {/* Suggested Accessible Color Card (if failing) */}
+              {(suggestedAA || suggestedAAA) && (
+                <div className="mt-5 p-4 rounded-xl bg-amber-50 dark:bg-amber-950/30 border border-amber-200 dark:border-amber-900/60 space-y-3">
+                  <div className="flex items-center gap-2 text-amber-800 dark:text-amber-300 font-bold text-xs">
+                    <Sparkles className="w-4 h-4" />
+                    <span>Suggested Accessible Foreground</span>
+                  </div>
+                  {suggestedAA && (
+                    <div className="flex items-center justify-between gap-2 text-xs">
+                      <div className="flex items-center gap-2">
+                        <span
+                          className="w-5 h-5 rounded-md border border-black/10 shrink-0"
+                          style={{ backgroundColor: `#${suggestedAA}` }}
+                        />
+                        <span className="font-mono font-bold text-slate-900 dark:text-white">#{suggestedAA}</span>
+                        <span className="text-[10px] text-slate-500">(Passes 4.5:1 AA)</span>
+                      </div>
+                      <button
+                        type="button"
+                        onClick={() => setFgHex(suggestedAA)}
+                        className="px-2.5 py-1 bg-amber-600 hover:bg-amber-700 text-white font-bold rounded-lg text-[11px] transition-colors cursor-pointer"
+                      >
+                        Apply AA
+                      </button>
+                    </div>
+                  )}
+                  {suggestedAAA && (
+                    <div className="flex items-center justify-between gap-2 text-xs pt-2 border-t border-amber-200/60 dark:border-amber-900/40">
+                      <div className="flex items-center gap-2">
+                        <span
+                          className="w-5 h-5 rounded-md border border-black/10 shrink-0"
+                          style={{ backgroundColor: `#${suggestedAAA}` }}
+                        />
+                        <span className="font-mono font-bold text-slate-900 dark:text-white">#{suggestedAAA}</span>
+                        <span className="text-[10px] text-slate-500">(Passes 7.0:1 AAA)</span>
+                      </div>
+                      <button
+                        type="button"
+                        onClick={() => setFgHex(suggestedAAA)}
+                        className="px-2.5 py-1 bg-amber-600 hover:bg-amber-700 text-white font-bold rounded-lg text-[11px] transition-colors cursor-pointer"
+                      >
+                        Apply AAA
+                      </button>
+                    </div>
+                  )}
+                </div>
+              )}
 
               {/* Sample Preset Pairs */}
               <div className="mt-6 pt-5 border-t border-slate-100 dark:border-slate-800">

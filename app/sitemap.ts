@@ -29,7 +29,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '/tools/color-mixer',
     '/tools/color-harmonies',
     '/tools/color-contrast-checker',
-    '/tools/shades-generator',
     '/tools/color-shades-generator',
     '/tools/color-names',
     '/tools/css-converter',

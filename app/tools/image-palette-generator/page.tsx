@@ -19,14 +19,14 @@ import {
 export const metadata: Metadata = {
   title: 'Color Palette From Image Generator - Extract 5 & 10 Color Schemes',
   description:
-    'Generate harmonious 5-color and 10-color palettes from any uploaded photo or image. Free, instant, 100% client-side browser processing with HEX, RGB, and CSS export.',
+    'Generate harmonious 5-color and 10-color palettes from any uploaded photo or image. Fast client-side browser processing with HEX, RGB, and CSS export.',
   alternates: {
     canonical: 'https://color-pickers.com/tools/image-palette-generator',
   },
   openGraph: {
     title: 'Color Palette From Image Generator | Color Pickers',
     description:
-      'Generate harmonious 5-color and 10-color palettes from any uploaded photo. Free, instant, 100% client-side browser processing.',
+      'Generate harmonious 5-color and 10-color palettes from any uploaded photo with client-side browser processing.',
     url: 'https://color-pickers.com/tools/image-palette-generator',
     type: 'website',
   },

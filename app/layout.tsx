@@ -4,8 +4,42 @@ import './globals.css';
 import { ThemeProvider } from '@/components/ThemeProvider';
 
 export const metadata: Metadata = {
-  title: 'Color Pickers - Modern Color Tools & Converters',
-  description: 'Fast client-side color converters (HEX, RGB, HSL, HSV, CMYK), gradient generator, color palette suite, and WCAG accessibility standards.',
+  metadataBase: new URL('https://color-pickers.com'),
+  title: {
+    default: 'Color Pickers - Modern Color Tools & Converters',
+    template: '%s | Color Pickers',
+  },
+  description:
+    'Free, fast client-side color tools: HEX, RGB, HSL, CMYK, OKLCH converters, WCAG contrast checker, palette generator, gradient creator, and image color extractor.',
+  alternates: {
+    canonical: '/',
+  },
+  openGraph: {
+    title: 'Color Pickers - Modern Online Color Tools',
+    description:
+      'Fast client-side color tools: HEX, RGB, HSL, CMYK, OKLCH converters, WCAG contrast checker, palette generator, and image color extractor.',
+    url: 'https://color-pickers.com',
+    siteName: 'Color Pickers',
+    locale: 'en_US',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Color Pickers - Modern Online Color Tools',
+    description:
+      'Fast client-side color tools: HEX, RGB, HSL, CMYK, OKLCH converters, WCAG contrast checker, palette generator, and image color extractor.',
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
+  },
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

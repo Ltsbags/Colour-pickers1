@@ -12,6 +12,7 @@ import { TrackColorView } from '@/components/TrackColorView';
 import { POPULAR_COLORS } from '@/lib/popular-colors';
 import { GUIDES } from '@/lib/guides-data';
 import { getColorResolution } from '@/lib/color-names';
+import { rgbToOklch, rgbToOklab } from '@/lib/color-utils';
 import {
   Check,
   X,
@@ -95,6 +96,11 @@ export function HexColorView({
   const cmykString = `cmyk(${cmyk.c}%, ${cmyk.m}%, ${cmyk.y}%, ${cmyk.k}%)`;
   const cssVarString = `--color-primary: #${hex};`;
   const tailwindBg = `bg-[#${hex}]`;
+
+  const oklch = rgbToOklch(rgb);
+  const oklab = rgbToOklab(rgb);
+  const oklchString = `oklch(${oklch.l} ${oklch.c} ${oklch.h})`;
+  const oklabString = `oklab(${oklab.l} ${oklab.a} ${oklab.b})`;
 
   const resolution = getColorResolution(hex);
 
@@ -245,6 +251,28 @@ export function HexColorView({
                     </span>
                   </div>
                   <CopyButton textToCopy={cmykString} size="sm" variant="ghost" />
+                </div>
+
+                {/* OKLCH (CSS Level 4) */}
+                <div className="p-3.5 bg-slate-50 dark:bg-slate-800/60 rounded-2xl border border-slate-200/60 dark:border-slate-700/60 flex items-center justify-between">
+                  <div>
+                    <span className="text-[10px] font-bold uppercase text-slate-400 block">OKLCH (CSS4)</span>
+                    <span className="font-mono text-sm font-bold text-slate-900 dark:text-white">
+                      {oklchString}
+                    </span>
+                  </div>
+                  <CopyButton textToCopy={oklchString} size="sm" variant="ghost" />
+                </div>
+
+                {/* OKLab */}
+                <div className="p-3.5 bg-slate-50 dark:bg-slate-800/60 rounded-2xl border border-slate-200/60 dark:border-slate-700/60 flex items-center justify-between">
+                  <div>
+                    <span className="text-[10px] font-bold uppercase text-slate-400 block">OKLab</span>
+                    <span className="font-mono text-sm font-bold text-slate-900 dark:text-white">
+                      {oklabString}
+                    </span>
+                  </div>
+                  <CopyButton textToCopy={oklabString} size="sm" variant="ghost" />
                 </div>
 
                 {/* Tailwind */}
