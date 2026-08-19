@@ -181,43 +181,70 @@ export default function HomePage() {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
             {/* Left Column: Headline, Description & Quick Search */}
             <div className="lg:col-span-7 space-y-6">
-              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-purple-100/80 dark:bg-purple-950/80 text-purple-700 dark:text-purple-300 text-xs font-semibold tracking-wide">
-                <Sparkles className="w-3.5 h-3.5 text-purple-600 dark:text-purple-400" />
-                <span>The Complete Color Toolkit</span>
+              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-blue-100/80 dark:bg-blue-950/80 text-blue-700 dark:text-blue-300 text-xs font-semibold tracking-wide">
+                <Sparkles className="w-3.5 h-3.5 text-blue-600 dark:text-blue-400" />
+                <span>Color Pickers & Utilities</span>
               </div>
 
               <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-slate-900 dark:text-white tracking-tight leading-[1.12]">
-                Free Online <br />
+                Professional Online <br />
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 dark:from-blue-400 dark:via-indigo-400 dark:to-purple-400">
                   Color Tools
                 </span>
               </h1>
 
               <p className="text-slate-600 dark:text-slate-400 text-base sm:text-lg max-w-xl leading-relaxed">
-                Pick, convert, extract, compare and generate beautiful colors for your next design.
+                Professional online color tools for designers, developers, marketers, and creators. Pick, convert, extract, test contrast, and generate harmonious palettes.
               </p>
+
+              {/* Primary & Secondary Action CTAs */}
+              <div className="flex flex-wrap items-center gap-3 pt-1">
+                <Link
+                  href="/tools/color-picker"
+                  className="px-5 py-3 bg-blue-600 hover:bg-blue-700 text-white font-bold text-sm rounded-xl shadow-xs transition-all flex items-center gap-2"
+                >
+                  <Pipette className="w-4 h-4" />
+                  <span>Pick a Color</span>
+                </Link>
+
+                <Link
+                  href="/tools/image-color-extractor"
+                  className="px-4 py-3 bg-white dark:bg-slate-900 hover:bg-slate-50 dark:hover:bg-slate-800 text-slate-800 dark:text-slate-200 border border-slate-200 dark:border-slate-800 font-semibold text-sm rounded-xl shadow-xs transition-all flex items-center gap-2"
+                >
+                  <ImageIcon className="w-4 h-4 text-emerald-600 dark:text-emerald-400" />
+                  <span>Extract from Image</span>
+                </Link>
+
+                <Link
+                  href="/tools/palette-generator"
+                  className="px-4 py-3 bg-white dark:bg-slate-900 hover:bg-slate-50 dark:hover:bg-slate-800 text-slate-800 dark:text-slate-200 border border-slate-200 dark:border-slate-800 font-semibold text-sm rounded-xl shadow-xs transition-all flex items-center gap-2"
+                >
+                  <Layers className="w-4 h-4 text-indigo-600 dark:text-indigo-400" />
+                  <span>Generate Palette</span>
+                </Link>
+              </div>
 
               {/* Feature Pills */}
               <div className="flex flex-wrap items-center gap-2.5 pt-1">
                 <div className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 text-xs font-semibold">
-                  <div className="w-4 h-4 rounded-full bg-purple-100 dark:bg-purple-900/60 text-purple-600 dark:text-purple-300 flex items-center justify-center">
+                  <div className="w-4 h-4 rounded-full bg-blue-100 dark:bg-blue-900/60 text-blue-600 dark:text-blue-300 flex items-center justify-center">
                     <Check className="w-2.5 h-2.5 stroke-[3]" />
                   </div>
                   <span>Fast Client-Side Processing</span>
                 </div>
 
                 <div className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 text-xs font-semibold">
-                  <div className="w-4 h-4 rounded-full bg-pink-100 dark:bg-pink-900/60 text-pink-600 dark:text-pink-300 flex items-center justify-center">
+                  <div className="w-4 h-4 rounded-full bg-emerald-100 dark:bg-emerald-900/60 text-emerald-600 dark:text-emerald-300 flex items-center justify-center">
                     <Check className="w-2.5 h-2.5 stroke-[3]" />
                   </div>
-                  <span>WCAG 2.1 AAA Contrast</span>
+                  <span>WCAG Contrast Analysis</span>
                 </div>
 
                 <div className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 text-xs font-semibold">
-                  <div className="w-4 h-4 rounded-full bg-teal-100 dark:bg-teal-900/60 text-teal-600 dark:text-teal-300 flex items-center justify-center">
+                  <div className="w-4 h-4 rounded-full bg-purple-100 dark:bg-purple-900/60 text-purple-600 dark:text-purple-300 flex items-center justify-center">
                     <Check className="w-2.5 h-2.5 stroke-[3]" />
                   </div>
-                  <span>100% Free to Use</span>
+                  <span>Free Online Toolkit</span>
                 </div>
               </div>
 
@@ -600,7 +627,7 @@ export default function HomePage() {
                 Are these color tools free to use for commercial projects?
               </h3>
               <p className="text-xs leading-relaxed">
-                Yes! All Color Pickers tools, conversions, gradient exports, and color palettes are 100% free with no account or subscription required. You can use generated palettes and CSS code in any commercial or personal project.
+                Yes. All Color Pickers tools, conversions, gradient exports, and color palettes are free to use without requiring an account or subscription. You can export generated palettes and CSS code for personal and commercial projects.
               </p>
             </div>
 
@@ -609,7 +636,7 @@ export default function HomePage() {
                 How does the eyedropper work?
               </h3>
               <p className="text-xs leading-relaxed">
-                In supported Chromium desktop browsers (Chrome, Edge, Opera), our color picker leverages the native EyeDropper API to sample pixels from any open window. On other browsers or devices, you can use our Image Color Picker or fine-tuning wheel.
+                In supported Chromium desktop browsers (such as Chrome and Edge), the color picker can utilize the native EyeDropper API to sample pixels. On other browsers and mobile devices, you can use our interactive color wheel or upload photos to the Image Color Extractor.
               </p>
             </div>
 
@@ -618,7 +645,7 @@ export default function HomePage() {
                 What is the difference between HEX and RGB?
               </h3>
               <p className="text-xs leading-relaxed">
-                HEX and RGB represent the exact same sRGB color space. HEX expresses values in base-16 notation (#3B82F6), whereas RGB uses standard decimal integers (rgb(59, 130, 246)).
+                HEX and RGB represent the same sRGB color space. HEX expresses values in base-16 hexadecimal notation (such as #3B82F6), whereas RGB uses standard decimal integers from 0 to 255 (such as rgb(59, 130, 246)).
               </p>
             </div>
 
@@ -627,7 +654,7 @@ export default function HomePage() {
                 Are my uploaded images stored or sent to a server?
               </h3>
               <p className="text-xs leading-relaxed">
-                Never. Image sampling and dominant palette extraction run entirely within your web browser using HTML5 Canvas. Your files never leave your device.
+                No. Image sampling and dominant palette extraction execute entirely within your web browser using HTML5 Canvas. Your image files are processed locally on your client device and are not uploaded to our servers.
               </p>
             </div>
           </div>

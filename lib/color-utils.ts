@@ -210,8 +210,8 @@ export function rgbToHsv({ r, g, b }: RGB): HSV {
 
   return {
     h: Math.round(h * 360),
-    s: Math.round(s * 100),
-    v: Math.round(v * 100),
+    s: Math.round(s * 1000) / 10,
+    v: Math.round(v * 1000) / 10,
   };
 }
 

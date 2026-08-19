@@ -13,7 +13,7 @@ export function HeroColorPickerCard({
   currentHex,
   onColorChange,
 }: HeroColorPickerCardProps) {
-  const [hsv, setHsv] = useState({ h: 217, s: 76, v: 96 }); // Default blue #3B82F6
+  const [hsv, setHsv] = useState({ h: 217, s: 76, v: 96.5 }); // Default blue #3B82F6
   const [isCopied, setIsCopied] = useState(false);
   const [isDraggingCanvas, setIsDraggingCanvas] = useState(false);
   const [isDraggingHue, setIsDraggingHue] = useState(false);
