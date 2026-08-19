@@ -93,60 +93,67 @@ export default function HomePage() {
 
   const toolsList = [
     {
+      title: 'HEX Color Picker',
+      desc: 'Pick colors visually with eyedropper screen support and interactive color wheel',
+      href: '/tools/color-picker',
+      icon: Pipette,
+      color: 'from-rose-500 to-pink-600',
+    },
+    {
+      title: 'Image Color Extractor',
+      desc: 'Upload any image to auto-extract dominant colors, HEX, RGB, HSL, and CMYK codes',
+      href: '/tools/image-color-extractor',
+      icon: ImageIcon,
+      color: 'from-emerald-500 to-teal-600',
+    },
+    {
       title: 'Universal Converter',
-      desc: 'Accurate HEX, RGB, HSL, HSV, and CMYK transformations directly in your browser',
+      desc: 'Multi-matrix transformations across HEX, RGB, HSL, HSV, CMYK, CSS, and Tailwind',
       href: '/tools/converter',
       icon: ArrowRightLeft,
       color: 'from-blue-500 to-indigo-600',
     },
     {
+      title: 'Color Palette Generator',
+      desc: 'Create harmonious 5-color aesthetic schemes with spacebar locks and randomizer',
+      href: '/tools/palette-generator',
+      icon: Layers,
+      color: 'from-indigo-500 to-purple-600',
+    },
+    {
       title: 'Gradient Generator',
-      desc: 'Create multi-stop linear & radial CSS and Tailwind gradients',
+      desc: 'Create multi-stop linear & radial CSS and Tailwind gradients with angle controls',
       href: '/tools/gradient-generator',
       icon: Sparkles,
       color: 'from-purple-500 to-pink-600',
     },
     {
-      title: 'Palette Generator',
-      desc: 'Spacebar randomizer, locks, and harmonious 5-color palettes',
-      href: '/tools/palette-generator',
-      icon: Layers,
-      color: 'from-emerald-500 to-teal-600',
-    },
-    {
-      title: 'Image Color Picker',
-      desc: 'Extract pixel colors & dominant palettes from uploaded photos locally',
-      href: '/tools/image-color-picker',
-      icon: ImageIcon,
-      color: 'from-amber-500 to-orange-600',
-    },
-    {
-      title: 'Color Contrast Checker',
-      desc: 'Verify WCAG 2.1 AA & AAA compliance for readable web typography',
+      title: 'Contrast Checker',
+      desc: 'Verify WCAG 2.1 Level AA & AAA compliance scores for accessible web typography',
       href: '/tools/color-contrast-checker',
       icon: ShieldCheck,
       color: 'from-rose-500 to-red-600',
     },
     {
-      title: 'Color Mixer & Blender',
-      desc: 'Mix two colors across precise percentage ratios and step spectrums',
-      href: '/tools/color-mixer',
-      icon: Sliders,
-      color: 'from-cyan-500 to-blue-600',
-    },
-    {
       title: 'Shades & Tints Generator',
-      desc: 'Generate 8-step lighter tints, darker shades, and muted tones',
+      desc: 'Generate lighter tints with white, darker shades with black, and muted tones',
       href: '/tools/color-shades-generator',
-      icon: Layers,
-      color: 'from-violet-500 to-purple-600',
+      icon: Sliders,
+      color: 'from-amber-500 to-orange-600',
     },
     {
-      title: 'Color Harmonies Suite',
-      desc: 'Complementary, analogous, triadic, and tetradic color wheels',
-      href: '/tools/color-harmonies',
-      icon: Pipette,
-      color: 'from-pink-500 to-rose-600',
+      title: 'Color Palette From Image',
+      desc: 'Generate 5-color and 10-color harmonious palettes directly from uploaded photos',
+      href: '/tools/image-palette-generator',
+      icon: ImageIcon,
+      color: 'from-teal-500 to-cyan-600',
+    },
+    {
+      title: 'Screenshot Color Extractor',
+      desc: 'Detect primary brand, background surfaces, typography, and accent tokens from UI captures',
+      href: '/tools/screenshot-color-extractor',
+      icon: Layers,
+      color: 'from-blue-600 to-cyan-500',
     },
   ];
 
@@ -176,24 +183,18 @@ export default function HomePage() {
             <div className="lg:col-span-7 space-y-6">
               <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-purple-100/80 dark:bg-purple-950/80 text-purple-700 dark:text-purple-300 text-xs font-semibold tracking-wide">
                 <Sparkles className="w-3.5 h-3.5 text-purple-600 dark:text-purple-400" />
-                <span>The Premier Color Toolkit</span>
+                <span>The Complete Color Toolkit</span>
               </div>
 
               <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-slate-900 dark:text-white tracking-tight leading-[1.12]">
-                Explore. Create. <br />
-                Convert{' '}
-                <span className="inline-inline-flex">
-                  <span className="text-purple-600">C</span>
-                  <span className="text-pink-500">o</span>
-                  <span className="text-amber-500">l</span>
-                  <span className="text-lime-500">o</span>
-                  <span className="text-blue-500">r</span>
-                  <span className="text-indigo-500">s</span>
+                Free Online <br />
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 dark:from-blue-400 dark:via-indigo-400 dark:to-purple-400">
+                  Color Tools
                 </span>
               </h1>
 
               <p className="text-slate-600 dark:text-slate-400 text-base sm:text-lg max-w-xl leading-relaxed">
-                Pick colors, generate palettes, convert between HEX, RGB, HSL, HSV, CMYK, test WCAG contrast, and copy CSS codes directly in your browser.
+                Pick, convert, extract, compare and generate beautiful colors for your next design.
               </p>
 
               {/* Feature Pills */}

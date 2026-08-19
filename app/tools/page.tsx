@@ -17,15 +17,37 @@ import {
   BookOpen,
   Code,
   Palette,
+  Image as ImageIcon,
 } from 'lucide-react';
 
 export const metadata: Metadata = {
   title: 'Color Tools Directory | Color Pickers',
-  description: 'Explore our full suite of professional color tools: HEX Color Picker, RGB Converter, HSL Converter, HSV Converter, CMYK Converter, Gradient Generator, Palette Generator, Contrast Checker, Shades Generator, Color Names, and CSS Color Converter.',
+  description: 'Explore our full suite of professional color tools: Image Color Extractor, HEX Color Picker, RGB Converter, HSL Converter, HSV Converter, CMYK Converter, Gradient Generator, Palette Generator, Contrast Checker, Shades Generator, Color Names, and CSS Color Converter.',
 };
 
 export default function ToolsDirectoryPage() {
   const tools = [
+    {
+      title: 'Image Color Extractor',
+      href: '/tools/image-color-extractor',
+      icon: ImageIcon,
+      color: 'bg-emerald-600',
+      description: 'Upload any image and automatically extract dominant colors with Top 5, 10, 20 count, HEX, RGB, HSL, and CMYK values.',
+    },
+    {
+      title: 'Color Palette From Image',
+      href: '/tools/image-palette-generator',
+      icon: Layers,
+      color: 'bg-teal-600',
+      description: 'Generate harmonious 5-color and 10-color palettes from photos with PNG swatch, CSS variable, and JSON exports.',
+    },
+    {
+      title: 'Website Screenshot Color Extractor',
+      href: '/tools/screenshot-color-extractor',
+      icon: ImageIcon,
+      color: 'bg-blue-600',
+      description: 'Reverse-engineer website UI screenshots to detect primary brand, background canvas, text, and accent tokens.',
+    },
     {
       title: 'Universal Color Converter',
       href: '/tools/converter',

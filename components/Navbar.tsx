@@ -29,15 +29,16 @@ export function Navbar() {
   ];
 
   const toolsList = [
+    { href: '/tools/image-color-extractor', label: 'Image Color Extractor', desc: 'Auto-extract dominant palettes & HEX' },
+    { href: '/tools/image-palette-generator', label: 'Image Palette Generator', desc: 'Generate 5 & 10 color schemes' },
+    { href: '/tools/screenshot-color-extractor', label: 'Screenshot Extractor', desc: 'Classify UI brand & background tokens' },
     { href: '/tools/color-picker', label: 'HEX Color Picker', desc: 'Visual screen eyedropper & picker' },
-    { href: '/tools/image-color-picker', label: 'Image Color Picker', desc: 'Extract colors & palettes from images' },
-    { href: '/tools/gradient-generator', label: 'Gradient Generator', desc: 'CSS multi-stop linear & radial' },
-    { href: '/tools/palette-generator', label: 'Palette Generator', desc: 'Harmonies & 5-color palettes' },
     { href: '/tools/color-contrast-checker', label: 'Contrast Checker', desc: 'WCAG 2.1 AA & AAA compliance' },
+    { href: '/tools/color-shades-generator', label: 'Shades & Tints', desc: 'Tonal lightness & darkness scales' },
+    { href: '/tools/palette-generator', label: 'Palette Generator', desc: 'Harmonies & 5-color palettes' },
+    { href: '/tools/gradient-generator', label: 'Gradient Generator', desc: 'CSS multi-stop linear & radial' },
     { href: '/tools/color-mixer', label: 'Color Mixer', desc: 'Blend 2 colors across ratio percentages' },
     { href: '/tools/color-harmonies', label: 'Color Harmonies', desc: 'Complementary, triadic & analogous' },
-    { href: '/tools/color-shades-generator', label: 'Shades & Tints', desc: 'Tonal lightness & darkness scales' },
-    { href: '/tools/color-names', label: 'Color Names', desc: 'Search 150+ named CSS shades' },
   ];
 
   const convertersList = [
