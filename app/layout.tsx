@@ -46,9 +46,49 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   const isAdSenseActive = ADSENSE_ENABLED && Boolean(ADSENSE_CLIENT_ID);
 
+  const websiteSchema = {
+    '@context': 'https://schema.org',
+    '@graph': [
+      {
+        '@type': 'WebSite',
+        '@id': 'https://color-pickers.com/#website',
+        url: 'https://color-pickers.com',
+        name: 'Color Pickers',
+        description: 'Fast, client-side color tools: HEX, RGB, HSL, CMYK, OKLCH converters, WCAG contrast checker, and palette generator.',
+        potentialAction: [
+          {
+            '@type': 'SearchAction',
+            target: {
+              '@type': 'EntryPoint',
+              urlTemplate: 'https://color-pickers.com/hex/{search_term_string}',
+            },
+            'query-input': 'required name=search_term_string',
+          },
+        ],
+        inLanguage: 'en-US',
+      },
+      {
+        '@type': 'Organization',
+        '@id': 'https://color-pickers.com/#organization',
+        name: 'Color Pickers',
+        url: 'https://color-pickers.com',
+        logo: {
+          '@type': 'ImageObject',
+          url: 'https://color-pickers.com/logo.png',
+        },
+      },
+    ],
+  };
+
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(websiteSchema),
+          }}
+        />
         <script
           dangerouslySetInnerHTML={{
             __html: `
