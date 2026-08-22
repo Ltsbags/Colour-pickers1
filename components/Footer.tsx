@@ -55,6 +55,7 @@ export function Footer() {
     { name: 'Frequently Asked Questions', href: '/faq' },
     { name: 'Privacy Policy', href: '/privacy-policy' },
     { name: 'Terms of Service', href: '/terms' },
+    { name: 'Cookie Policy', href: '/cookie-policy' },
     { name: 'Disclaimer', href: '/disclaimer' },
     { name: 'Contact Us', href: '/contact' },
   ];
@@ -185,6 +186,9 @@ export function Footer() {
             </Link>
             <Link href="/terms" className="hover:underline">
               Terms
+            </Link>
+            <Link href="/cookie-policy" className="hover:underline">
+              Cookies
             </Link>
             <Link href="/disclaimer" className="hover:underline">
               Disclaimer

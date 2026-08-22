@@ -419,6 +419,11 @@ export function getHarmonies(hex: string) {
   const mono1Hsl = { ...hsl, l: Math.max(10, hsl.l - 25) };
   const mono2Hsl = { ...hsl, l: Math.min(90, hsl.l + 25) };
 
+  // Tetradic / Rectangle (+60, +180, +240 deg)
+  const tet1Hsl = { ...hsl, h: rotateHue(60) };
+  const tet2Hsl = { ...hsl, h: rotateHue(180) };
+  const tet3Hsl = { ...hsl, h: rotateHue(240) };
+
   return {
     complementary: {
       name: 'Complementary',
@@ -449,6 +454,15 @@ export function getHarmonies(hex: string) {
         { hex: `#${normalizeHex(hex)}`, label: 'Base' },
         { hex: `#${rgbToHex(hslToRgb(split1Hsl))}`, label: '+150°' },
         { hex: `#${rgbToHex(hslToRgb(split2Hsl))}`, label: '+210°' },
+      ],
+    },
+    tetradic: {
+      name: 'Tetradic',
+      colors: [
+        { hex: `#${normalizeHex(hex)}`, label: 'Base' },
+        { hex: `#${rgbToHex(hslToRgb(tet1Hsl))}`, label: '+60°' },
+        { hex: `#${rgbToHex(hslToRgb(tet2Hsl))}`, label: '+180°' },
+        { hex: `#${rgbToHex(hslToRgb(tet3Hsl))}`, label: '+240°' },
       ],
     },
     monochromatic: {
