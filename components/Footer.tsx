@@ -52,6 +52,7 @@ export function Footer() {
 
   const companyLinks = [
     { name: 'About Color Pickers', href: '/about' },
+    { name: 'Methodology & Science', href: '/methodology' },
     { name: 'Frequently Asked Questions', href: '/faq' },
     { name: 'Privacy Policy', href: '/privacy-policy' },
     { name: 'Terms of Service', href: '/terms' },
@@ -181,6 +182,9 @@ export function Footer() {
         <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500">
           <p>© {new Date().getFullYear()} Color Pickers. All rights reserved.</p>
           <div className="flex items-center gap-4">
+            <Link href="/methodology" className="hover:underline">
+              Methodology
+            </Link>
             <Link href="/privacy-policy" className="hover:underline">
               Privacy
             </Link>

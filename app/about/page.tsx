@@ -78,6 +78,23 @@ export default function AboutPage() {
               </p>
             </div>
           </div>
+
+          <div className="p-6 rounded-2xl bg-blue-50/70 dark:bg-blue-950/40 border border-blue-200/80 dark:border-blue-800/80 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+            <div>
+              <h3 className="font-bold text-sm text-blue-950 dark:text-blue-100">
+                Transparent Mathematical Formulas
+              </h3>
+              <p className="text-xs text-blue-800 dark:text-blue-300 mt-0.5">
+                Learn how we calculate relative luminance, WCAG 2.1 contrast ratios, and color geometry.
+              </p>
+            </div>
+            <a
+              href="/methodology"
+              className="px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white font-semibold text-xs rounded-xl shadow-xs transition-colors shrink-0"
+            >
+              Read Color Methodology →
+            </a>
+          </div>
         </div>
 
         <AdSlot type="in-content" />

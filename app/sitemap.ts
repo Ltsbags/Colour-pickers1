@@ -34,6 +34,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '/tools/css-converter',
     '/tools/random-color',
     '/about',
+    '/methodology',
     '/faq',
     '/privacy-policy',
     '/terms',
