@@ -87,12 +87,12 @@ const FAQ_SECTIONS = [
     icon: Zap,
     items: [
       {
-        q: 'Are these color tools 100% free for commercial use?',
-        a: 'Yes. All palettes, color conversions, gradient CSS styles, and shades generated on Color Pickers are free for personal, commercial, freelance, and enterprise projects without attribution or license fees.',
+        q: 'Are these color tools free for commercial use?',
+        a: 'Yes. All palettes, color conversions, gradient CSS styles, and shades generated on Color Pickers are free for personal, commercial, and client projects without attribution or license fees.',
       },
       {
         q: 'Is any of my palette data or uploaded imagery saved to a database?',
-        a: 'No. All calculations, color matrices, image sampling, and gradient generation execute strictly on the client side inside your browser. No server databases, backend logs, or analytics track your design assets.',
+        a: 'No. Calculations, color conversions, image sampling, and gradient generation execute on the client side inside your browser. Your images and colors are not stored in server databases.',
       },
       {
         q: 'Do you offer keyboard shortcuts for fast palette exploration?',

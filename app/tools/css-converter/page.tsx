@@ -307,11 +307,11 @@ export default function CssColorConverterPage() {
           comparisonTable={{
             headers: ['CSS Notation', 'Example Syntax', 'Browser Support', 'Alpha Channel Support'],
             rows: [
-              ['HEX (6-digit)', '#3B82F6', '100% (Universal)', 'No (requires 8-digit #3B82F6FF)'],
-              ['CSS rgb()', 'rgb(59, 130, 246)', '100% (Universal)', 'Yes via rgb(59 130 246 / 0.8) in CSS4'],
-              ['CSS rgba()', 'rgba(59, 130, 246, 0.85)', '100% (Universal)', 'Yes'],
-              ['CSS hsl()', 'hsl(217deg, 91%, 60%)', '99.5% (Modern)', 'Yes via hsla() or CSS4 slash syntax'],
-              ['CSS Custom Property', 'var(--color-primary)', '98.5% (Modern)', 'Inherits defined color model'],
+              ['HEX (6-digit)', '#3B82F6', 'Universal support', 'No (requires 8-digit #3B82F6FF)'],
+              ['CSS rgb()', 'rgb(59, 130, 246)', 'Universal support', 'Yes via rgb(59 130 246 / 0.8) in CSS4'],
+              ['CSS rgba()', 'rgba(59, 130, 246, 0.85)', 'Universal support', 'Yes'],
+              ['CSS hsl()', 'hsl(217deg, 91%, 60%)', 'Modern browsers', 'Yes via hsla() or CSS4 slash syntax'],
+              ['CSS Custom Property', 'var(--color-primary)', 'Modern browsers', 'Inherits defined color model'],
             ],
           }}
           faqs={[

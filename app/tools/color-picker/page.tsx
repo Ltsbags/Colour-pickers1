@@ -219,7 +219,7 @@ export default function ColorPickerPage() {
           features={[
             {
               title: 'Native Eyedropper API',
-              description: 'Sample pixel-perfect colors from any window, document, or desktop app in supported browsers.',
+              description: 'Sample colors from any window, document, or screen area in supported browsers.',
             },
             {
               title: 'Multi-Model Sync',

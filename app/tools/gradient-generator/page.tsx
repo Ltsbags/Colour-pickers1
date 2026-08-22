@@ -79,7 +79,7 @@ export default function GradientGeneratorPage() {
             CSS Gradient Generator & Background Maker
           </h1>
           <p className="mt-2 text-slate-600 dark:text-slate-400 text-sm sm:text-base leading-relaxed">
-            Craft linear, radial, and conic CSS gradients with multi-color stop controls, angle dials, curated aesthetic presets, and instant clipboard CSS export.
+            Craft linear, radial, and conic CSS gradients with multi-color stop controls, angle dials, curated presets, and copyable CSS export.
           </p>
         </div>
 

@@ -3,7 +3,7 @@ import type { Metadata } from 'next';
 export const metadata: Metadata = {
   title: 'Online Color Picker - Eyedropper & Color Wheel (HEX, RGB, HSL)',
   description:
-    'Sample colors directly from your screen with native eyedropper support or fine-tune hues using the interactive color wheel. Get instant HEX, RGB, HSL, HSV, and CMYK codes.',
+    'Sample colors directly from your screen with native eyedropper support or fine-tune hues using the interactive color wheel. Get calculated HEX, RGB, HSL, HSV, and CMYK codes.',
   alternates: {
     canonical: 'https://color-pickers.com/tools/color-picker',
   },

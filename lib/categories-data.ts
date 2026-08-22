@@ -19,7 +19,7 @@ export const CATEGORIES_MAP: Record<string, CategoryData> = {
     description:
       'Blue is the most universally favored color in digital product design, inspiring feelings of security, stability, intelligence, and clarity. From royal azure and electric sky blue to deep corporate navy, explore complete specifications for the blue color spectrum.',
     psychology:
-      'Blue triggers cognitive feelings of reliability, professionalism, calmness, and technological authority. It is widely adopted by leading software enterprises, financial institutions, and communication platforms.',
+      'Blue triggers cognitive feelings of reliability, professionalism, calmness, and technological authority. It is widely adopted across software applications, financial websites, and communication platforms.',
     uiUsage:
       'Ideal for primary action buttons, focused input outlines, active navigation links, and primary brand logos. Medium-to-dark blues (#1D4ED8, #1E40AF) provide outstanding WCAG AA contrast on white backgrounds.',
     accessibilityNotes:
@@ -117,7 +117,7 @@ export const CATEGORIES_MAP: Record<string, CategoryData> = {
     psychology:
       'Yellow evokes warmth, optimism, clarity, creative energy, and cautionary awareness.',
     uiUsage:
-      'Perfect for warning alerts, star ratings, highlighting featured promotions, and warm celebratory accents in design systems.',
+      'Suitable for warning alerts, star ratings, highlighting featured promotions, and warm celebratory accents in design systems.',
     accessibilityNotes:
       'Yellow has very high natural luminance. Always pair yellow backgrounds with dark black/charcoal text (#0F172A) rather than white to meet WCAG AA standards.',
     colors: [

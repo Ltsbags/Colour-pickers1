@@ -490,7 +490,7 @@ export default function ContrastCheckerPage() {
             },
             {
               title: 'Curated Accessible Presets',
-              description: 'Test high-performing accessible color pairings recommended for modern enterprise UI.',
+              description: 'Test accessible color pairings designed for modern digital user interfaces.',
             },
           ]}
           comparisonTable={{

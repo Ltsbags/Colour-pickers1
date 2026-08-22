@@ -24,14 +24,14 @@ import {
 export const metadata: Metadata = {
   title: 'Image Color Extractor - Extract HEX, RGB, HSL & CMYK',
   description:
-    'Extract colors from any image instantly. Get dominant HEX, RGB, HSL and CMYK colors with our free browser-based image color extractor.',
+    'Extract colors from an image. Get dominant HEX, RGB, HSL and CMYK colors with our free browser-based image color extractor.',
   alternates: {
     canonical: 'https://color-pickers.com/tools/image-color-extractor',
   },
   openGraph: {
     title: 'Image Color Extractor - Extract HEX, RGB, HSL & CMYK | Color Pickers',
     description:
-      'Extract colors from any image instantly. Get dominant HEX, RGB, HSL and CMYK colors with our free browser-based image color extractor.',
+      'Extract colors from an image. Get dominant HEX, RGB, HSL and CMYK colors with our free browser-based image color extractor.',
     url: 'https://color-pickers.com/tools/image-color-extractor',
     type: 'website',
     images: [
@@ -47,7 +47,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Image Color Extractor - Extract HEX, RGB, HSL & CMYK',
     description:
-      'Extract colors from any image instantly. Get dominant HEX, RGB, HSL and CMYK colors with our free browser-based image color extractor.',
+      'Extract colors from an image. Get dominant HEX, RGB, HSL and CMYK colors with our free browser-based image color extractor.',
   },
 };
 
@@ -124,7 +124,7 @@ export default function ImageColorExtractorPage() {
         <div className="my-6 text-center max-w-3xl mx-auto space-y-3">
           <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-blue-50 dark:bg-blue-950/70 text-blue-700 dark:text-blue-300 border border-blue-200 dark:border-blue-800">
             <Sparkles className="w-3.5 h-3.5" />
-            <span>100% Client-Side Image Analysis</span>
+            <span>Client-Side Image Analysis</span>
           </div>
 
           <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-slate-900 dark:text-white">

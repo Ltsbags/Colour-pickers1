@@ -312,7 +312,7 @@ export default function ColorMixerPage() {
               description: 'Visual spectrum showing the exact color steps between the two colors.',
             },
             {
-              title: 'Instant CSS Variable Export',
+              title: 'CSS Variable Export',
               description: 'Generate production-ready CSS variables and Tailwind arbitrary tokens.',
             },
             {

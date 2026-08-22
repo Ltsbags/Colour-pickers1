@@ -77,7 +77,7 @@ export default function ImagePaletteGeneratorPage() {
             Color Palette From Image
           </h1>
           <p className="text-base sm:text-lg text-slate-600 dark:text-slate-400 leading-relaxed max-w-2xl mx-auto">
-            Upload any photo or illustration to instantly generate a balanced, cohesive color palette for your UI, website, or branding project.
+            Upload any photo or illustration to generate a balanced, cohesive color palette for your UI, website, or branding project.
           </p>
         </div>
 
@@ -119,7 +119,7 @@ export default function ImagePaletteGeneratorPage() {
                   <span className="transition-transform group-open:rotate-180 text-slate-400">▾</span>
                 </summary>
                 <p className="mt-3 text-xs sm:text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
-                  Yes. All image processing runs 100% locally in your web browser. No photos or graphic assets are ever sent to our servers.
+                  Yes. Image processing is performed locally in your web browser. Uploaded images are not transmitted to remote servers.
                 </p>
               </details>
             </div>

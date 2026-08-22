@@ -3,14 +3,14 @@ import type { Metadata } from 'next';
 export const metadata: Metadata = {
   title: 'Color Names Dictionary - 140+ CSS Colors & Descriptive Names',
   description:
-    'Search and browse the complete dictionary of official W3C CSS color names and standard descriptive color terms with HEX codes, RGB values, and interactive swatches.',
+    'Search and browse the dictionary of standard W3C CSS color names and descriptive color terms with HEX codes, RGB values, and interactive swatches.',
   alternates: {
     canonical: 'https://color-pickers.com/tools/color-names',
   },
   openGraph: {
     title: 'Color Names Dictionary | Color Pickers',
     description:
-      'Search and browse the complete dictionary of official W3C CSS color names with HEX codes and RGB values.',
+      'Search and browse the dictionary of standard W3C CSS color names with HEX codes and RGB values.',
     url: 'https://color-pickers.com/tools/color-names',
     type: 'website',
   },

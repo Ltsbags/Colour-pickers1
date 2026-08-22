@@ -172,7 +172,7 @@ export default function HexToHslPage() {
             },
             {
               question: 'Is HSL supported across all browsers?',
-              answer: 'Yes, standard hsl() and hsla() syntax is fully supported across 100% of modern web browsers and mobile runtimes.',
+              answer: 'Yes, standard hsl() and hsla() syntax is supported across modern web browsers and mobile runtimes.',
             },
           ]}
           relatedTools={[

@@ -158,7 +158,7 @@ export function HexColorView({
                     >
                       {resolution.isExactCss
                         ? resolution.name
-                        : `Descriptive Name: ${resolution.name}`}
+                        : `Approximate Color Name: ${resolution.name}`}
                     </p>
                     {resolution.isExactCss ? (
                       <span
@@ -166,7 +166,7 @@ export function HexColorView({
                           isLight ? 'bg-black/10 text-slate-800' : 'bg-white/20 text-slate-100'
                         }`}
                       >
-                        Official CSS Named Color
+                        Official CSS Color Name
                       </span>
                     ) : (
                       <p
@@ -174,7 +174,7 @@ export function HexColorView({
                           isLight ? 'text-slate-700' : 'text-slate-300'
                         }`}
                       >
-                        Closest CSS Named Color:{' '}
+                        Closest CSS Color Name:{' '}
                         <span className="font-semibold">{resolution.closestCssName}</span>{' '}
                         <span className="font-mono text-[10px]">
                           (#{resolution.closestCssHex})

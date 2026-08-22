@@ -61,7 +61,7 @@ export default function ColorNamesDictionaryPage() {
             Color Names Dictionary & Reference
           </h1>
           <p className="mt-2 text-slate-600 dark:text-slate-400 text-sm sm:text-base leading-relaxed">
-            Browse through hundreds of named shades, official CSS / HTML color names, and curated hex swatches with interactive search and one-click copy.
+            Browse through named shades, standard W3C CSS / HTML color names, and curated hex swatches with interactive search and one-click copy.
           </p>
         </div>
 
@@ -218,7 +218,7 @@ export default function ColorNamesDictionaryPage() {
           features={[
             {
               title: 'Curated 150+ Standard & Extended Names',
-              description: 'Includes official CSS3/CSS4 keyword colors plus high-utility modern UI naming standards.',
+              description: 'Includes standard CSS3/CSS4 keyword colors plus curated modern UI naming references.',
             },
             {
               title: 'Real-Time Search Filter',

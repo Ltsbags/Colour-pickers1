@@ -144,7 +144,7 @@ export default function ToolsDirectoryPage() {
       href: '/tools/color-names',
       icon: BookOpen,
       color: 'bg-cyan-600',
-      description: 'Browse hundreds of curated named shades, official CSS / HTML color names, and search by hex.',
+      description: 'Browse curated named shades, standard W3C CSS / HTML color names, and search by hex.',
     },
     {
       title: 'CSS Color Converter',

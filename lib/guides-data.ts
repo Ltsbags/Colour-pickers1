@@ -67,7 +67,7 @@ export const GUIDES: GuideArticle[] = [
   },
   {
     slug: 'how-to-choose-a-website-color-palette',
-    title: 'How to Choose a Perfect Website Color Palette (60-30-10 Rule)',
+    title: 'How to Choose a Balanced Website Color Palette (60-30-10 Rule)',
     excerpt:
       'Step-by-step framework to pick harmonious website color schemes using the proven 60-30-10 rule, brand psychology, and high-converting CTA accents.',
     category: 'UI/UX Design',

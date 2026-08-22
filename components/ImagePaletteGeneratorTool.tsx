@@ -202,11 +202,11 @@ export function ImagePaletteGeneratorTool() {
 
   return (
     <div className="space-y-8">
-      {/* Privacy Guarantee */}
+      {/* Client-Side Processing Notice */}
       <div className="flex items-center gap-3 p-3.5 sm:p-4 rounded-2xl bg-emerald-50/80 dark:bg-emerald-950/40 border border-emerald-200/80 dark:border-emerald-800/80 text-emerald-900 dark:text-emerald-200 text-xs sm:text-sm">
         <ShieldCheck className="w-5 h-5 text-emerald-600 dark:text-emerald-400 shrink-0" />
         <p className="leading-relaxed">
-          <strong className="font-semibold">Local & Private:</strong> Uploaded images are processed client-side inside your browser and never uploaded to any remote server.
+          <strong className="font-semibold">Local Processing:</strong> Uploaded images are processed client-side inside your browser and not uploaded to remote servers.
         </p>
       </div>
 
@@ -264,7 +264,7 @@ export function ImagePaletteGeneratorTool() {
             <p className="text-sm text-slate-500 dark:text-slate-400 max-w-md mb-4">
               Drag and drop your photo or <span className="text-blue-600 dark:text-blue-400 font-semibold underline">browse file</span> • Supports JPG, PNG, WebP, GIF, AVIF
             </p>
-            <div className="text-xs text-slate-400 font-mono">Max 10 MB • Instant local generation</div>
+            <div className="text-xs text-slate-400 font-mono">Max 10 MB • Browser-based generation</div>
           </div>
 
           {/* Quick Presets */}

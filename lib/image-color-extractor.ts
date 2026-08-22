@@ -542,7 +542,7 @@ export async function downloadPaletteAs(
     // Footer branding
     ctx.fillStyle = '#64748B';
     ctx.font = '14px -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif';
-    ctx.fillText('color-pickers.com • 100% Client-Side Color Tools', 48, height - 30);
+    ctx.fillText('color-pickers.com • Browser-Based Color Tools', 48, height - 30);
 
     canvas.toBlob(blob => {
       if (blob) {

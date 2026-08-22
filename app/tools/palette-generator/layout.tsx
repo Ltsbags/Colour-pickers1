@@ -10,7 +10,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Color Palette Generator - Create Harmonious Schemes | Color Pickers',
     description:
-      'Generate balanced 5-color aesthetic palettes with spacebar randomization, color locking, and instant export.',
+      'Generate balanced 5-color aesthetic palettes with spacebar randomization, color locking, and export options.',
     url: 'https://color-pickers.com/tools/palette-generator',
     type: 'website',
   },

@@ -232,7 +232,7 @@ export default async function GuideDetailPage({ params }: PageProps) {
               1. Why Digital Colors Look Dull When Printed
             </h2>
             <p>
-              Computer monitors and smartphone screens emit photons directly into your eyes, allowing them to produce ultra-vibrant electric blues, neon greens, and hot magentas. Physical paper, however, cannot emit light—it only reflects ambient room light after ink pigments absorb specific wavelengths.
+              Computer monitors and smartphone screens emit photons directly into your eyes, allowing them to produce vibrant electric blues, neon greens, and magentas. Physical paper, however, cannot emit light—it only reflects ambient room light after ink pigments absorb specific wavelengths.
             </p>
             <p>
               Because the physical CMYK ink color gamut is significantly smaller than the digital sRGB gamut, highly saturated screen colors are automatically clipped or desaturated during print conversion.
@@ -432,7 +432,7 @@ export default async function GuideDetailPage({ params }: PageProps) {
               2. Testing Accessible Colors
             </h2>
             <p>
-              Use our real-time <Link href="/tools/color-contrast-checker" className="text-blue-600 dark:text-blue-400 underline font-semibold">WCAG Contrast Checker</Link> to test any background and foreground pair instantly with automated AA/AAA status badges.
+              Use our <Link href="/tools/color-contrast-checker" className="text-blue-600 dark:text-blue-400 underline font-semibold">WCAG Contrast Checker</Link> to test any background and foreground pair with automated AA/AAA status badges.
             </p>
           </div>
         );
