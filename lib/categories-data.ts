@@ -360,7 +360,7 @@ export const CATEGORIES_MAP: Record<string, CategoryData> = {
       { name: 'Off-White', hex: 'FAF9F6' },
       { name: 'Baby Powder', hex: 'FEFEFA' },
       { name: 'Rice White', hex: 'EEF0F2' },
-      { name: 'Coconut White', hex: '965A3E' },
+      { name: 'Coconut White', hex: 'F8F5EE' },
     ],
   },
 };
