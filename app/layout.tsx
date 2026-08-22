@@ -2,20 +2,21 @@ import type { Metadata } from 'next';
 import Script from 'next/script';
 import './globals.css';
 import { ThemeProvider } from '@/components/ThemeProvider';
+import { ADSENSE_ENABLED, ADSENSE_CLIENT_ID } from '@/lib/adsense-config';
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://color-pickers.com'),
   title: {
-    default: 'Color Pickers - Modern Color Tools & Converters',
+    default: 'Color Pickers - Fast & Precise Online Color Tools',
     template: '%s | Color Pickers',
   },
   description:
-    'Free, fast client-side color tools: HEX, RGB, HSL, CMYK, OKLCH converters, WCAG contrast checker, palette generator, gradient creator, and image color extractor.',
+    'Free, client-side color tools: HEX, RGB, HSL, CMYK, OKLCH converters, WCAG contrast checker, palette generator, gradient creator, and image color extractor.',
   alternates: {
     canonical: '/',
   },
   openGraph: {
-    title: 'Color Pickers - Modern Online Color Tools',
+    title: 'Color Pickers - Fast & Precise Online Color Tools',
     description:
       'Fast client-side color tools: HEX, RGB, HSL, CMYK, OKLCH converters, WCAG contrast checker, palette generator, and image color extractor.',
     url: 'https://color-pickers.com',
@@ -25,7 +26,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Color Pickers - Modern Online Color Tools',
+    title: 'Color Pickers - Fast & Precise Online Color Tools',
     description:
       'Fast client-side color tools: HEX, RGB, HSL, CMYK, OKLCH converters, WCAG contrast checker, palette generator, and image color extractor.',
   },
@@ -43,7 +44,7 @@ export const metadata: Metadata = {
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
-  const adsenseClient = process.env.NEXT_PUBLIC_ADSENSE_CLIENT || 'ca-pub-9745434299525119';
+  const isAdSenseActive = ADSENSE_ENABLED && Boolean(ADSENSE_CLIENT_ID);
 
   return (
     <html lang="en" suppressHydrationWarning>
@@ -59,50 +60,24 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                   document.documentElement.classList.remove('dark');
                 }
               } catch (e) {}
-
-              // Guard against unhandled third-party script errors (AdSense TagError, ad blockers, etc.)
-              if (typeof window !== 'undefined') {
-                window.addEventListener('error', function(e) {
-                  if (e && e.message && (
-                    e.message.indexOf('adsbygoogle') !== -1 ||
-                    e.message.indexOf('TagError') !== -1 ||
-                    e.message.indexOf('pagead') !== -1 ||
-                    e.filename && e.filename.indexOf('googlesyndication') !== -1
-                  )) {
-                    e.preventDefault();
-                    e.stopPropagation();
-                    return true;
-                  }
-                }, true);
-                window.addEventListener('unhandledrejection', function(e) {
-                  if (e && e.reason && (
-                    String(e.reason).indexOf('adsbygoogle') !== -1 ||
-                    String(e.reason).indexOf('TagError') !== -1 ||
-                    String(e.reason).indexOf('pagead') !== -1
-                  )) {
-                    e.preventDefault();
-                  }
-                });
-              }
             `,
           }}
         />
-        {adsenseClient && (
-          <meta name="google-adsense-account" content={adsenseClient} />
+        {isAdSenseActive && (
+          <meta name="google-adsense-account" content={ADSENSE_CLIENT_ID} />
         )}
       </head>
       <body suppressHydrationWarning className="antialiased selection:bg-blue-500 selection:text-white">
         <ThemeProvider>{children}</ThemeProvider>
-        {adsenseClient && (
+        {isAdSenseActive && (
           <Script
             id="google-adsense"
             strategy="afterInteractive"
             crossOrigin="anonymous"
-            src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${adsenseClient}`}
+            src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${ADSENSE_CLIENT_ID}`}
           />
         )}
       </body>
     </html>
   );
 }
-
