@@ -73,13 +73,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.85,
   }));
 
-  // Combine unique hex colors
+  // Combine unique uppercase hex colors to match canonical URL format
   const allHexes = Array.from(
     new Set([
-      ...POPULAR_COLORS.map(c => c.hex.toLowerCase()),
-      ...TRENDING_COLORS.map(c => c.hex.toLowerCase()),
-      ...PASTEL_COLORS.map(c => c.hex.toLowerCase()),
-      ...COLOR_NAMES.map(c => c.hex.toLowerCase()),
+      ...POPULAR_COLORS.map(c => c.hex.toUpperCase()),
+      ...TRENDING_COLORS.map(c => c.hex.toUpperCase()),
+      ...PASTEL_COLORS.map(c => c.hex.toUpperCase()),
+      ...COLOR_NAMES.map(c => c.hex.toUpperCase()),
     ])
   );
 

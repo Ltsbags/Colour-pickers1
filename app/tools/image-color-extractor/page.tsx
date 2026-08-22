@@ -267,7 +267,7 @@ export default function ImageColorExtractorPage() {
             </p>
           </section>
 
-          {/* Section 5: Privacy First Guarantee */}
+          {/* Section 5: Client-Side Processing Notice */}
           <section className="bg-white dark:bg-slate-900 border border-slate-200/80 dark:border-slate-800/80 rounded-3xl p-6 sm:p-10 shadow-xs space-y-4">
             <div className="flex items-center gap-3">
               <div className="w-10 h-10 rounded-xl bg-emerald-100 dark:bg-emerald-950/80 text-emerald-600 dark:text-emerald-400 flex items-center justify-center font-bold">
@@ -279,10 +279,10 @@ export default function ImageColorExtractorPage() {
             </div>
 
             <p className="text-slate-600 dark:text-slate-300 text-sm sm:text-base leading-relaxed">
-              <strong>No.</strong> Your privacy and data security are 100% protected. All image decoding, canvas rendering, pixel sampling, and color quantization occur strictly inside your device’s web browser via standard client-side JavaScript APIs (<code className="px-1.5 py-0.5 bg-slate-100 dark:bg-slate-800 rounded text-xs font-mono">URL.createObjectURL</code> and <code className="px-1.5 py-0.5 bg-slate-100 dark:bg-slate-800 rounded text-xs font-mono">CanvasRenderingContext2D</code>).
+              <strong>No.</strong> All image decoding, canvas rendering, pixel sampling, and color quantization occur locally inside your web browser via standard client-side APIs (<code className="px-1.5 py-0.5 bg-slate-100 dark:bg-slate-800 rounded text-xs font-mono">URL.createObjectURL</code> and <code className="px-1.5 py-0.5 bg-slate-100 dark:bg-slate-800 rounded text-xs font-mono">CanvasRenderingContext2D</code>).
             </p>
             <p className="text-slate-600 dark:text-slate-300 text-sm sm:text-base leading-relaxed">
-              Your images are never sent over the internet, never transmitted to external cloud servers, and never stored on any database. When you close the browser tab or click &ldquo;Remove Image&rdquo;, the object reference is immediately released from memory.
+              Your images are not transmitted to external servers or stored in any database. When you close the browser tab or click &ldquo;Remove Image&rdquo;, the object reference is released from memory.
             </p>
           </section>
 
